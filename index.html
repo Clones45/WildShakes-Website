@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildshakes Cafe — Taste the Wild Side of Premium</title>
+  <meta name="description" content="Wildshakes Cafe: Handcrafted signature shakes, artisan coffee, and gourmet food. Experience premium café culture at its wildest." />
+  <meta name="keywords" content="wildshakes, cafe, shakes, coffee, food, franchise, Philippines, premium" />
+  <meta name="author" content="Wildshakes Cafe" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://wildshakes-cafe.vercel.app/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <link rel="apple-touch-icon" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <meta name="theme-color" content="#2D5A27" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wildshakes Cafe — Taste the Wild Side of Premium" />
+  <meta property="og:description" content="Handcrafted signature shakes, artisan coffee & gourmet bites — every sip, every bite, served wild." />
+  <meta property="og:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
+  <meta property="og:url" content="https://wildshakes-cafe.vercel.app/" />
+  <meta property="og:site_name" content="Wildshakes Cafe" />
+  <meta property="og:locale" content="en_PH" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wildshakes Cafe — Taste the Wild Side of Premium" />
+  <meta name="twitter:description" content="Handcrafted signature shakes, artisan coffee & gourmet bites — served wild." />
+  <meta name="twitter:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Wildshakes Cafe",
+    "description": "Premium signature shakes, artisan coffee, and gourmet food café in the Philippines.",
+    "url": "https://wildshakes-cafe.vercel.app",
+    "logo": "https://wildshakes-cafe.vercel.app/assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg",
+    "image": "https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg",
+    "servesCuisine": ["Shakes", "Coffee", "Gourmet Food"],
+    "priceRange": "₱₱",
+    "numberOfLocations": 8,
+    "openingHours": ["Mo-Th 10:00-22:00", "Fr-Sa 10:00-00:00", "Su 11:00-22:00"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PH"
+    },
+    "sameAs": [
+      "https://www.facebook.com/wildshakescafe",
+      "https://www.instagram.com/wildshakescafe",
+      "https://www.wildshakes.com"
+    ]
+  }
+  </script>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Hero ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      overflow: hidden;
+      background: var(--black);
+    }
+    #hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.08);
+      transition: transform 10s ease;
+      filter: brightness(0.55);
+    }
+    #hero.loaded #hero-bg { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(18,18,18,0.7) 0%,
+        rgba(45,90,39,0.3) 60%,
+        transparent 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(24px, 8vw, 120px) clamp(64px, 10vh, 120px);
+      max-width: 820px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.5);
+      backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 50px;
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeSlideUp 0.8s 0.3s ease forwards;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    .hero-title {
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: var(--white);
+      font-weight: 900;
+      line-height: 1.05;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.5);
+      opacity: 0;
+      animation: fadeSlideUp 0.9s 0.5s ease forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      margin-top: 20px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      line-height: 1.65;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s 0.7s ease forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s 0.9s ease forwards;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s 1.4s ease forwards;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.15); }
+    }
+
+    /* ── Bestsellers ── */
+    #bestsellers {
+      background: var(--cream);
+    }
+    .bestsellers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .best-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+    }
+    .best-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease, filter 0.5s ease;
+    }
+    .best-card:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.75);
+    }
+    .best-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(18,18,18,0.85) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+    }
+    .best-cat {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+      margin-bottom: 6px;
+    }
+    .best-overlay h3 {
+      color: var(--white);
+      font-size: 1.5rem;
+    }
+    .best-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .best-card:hover .best-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Brand strip ── */
+    #brand-strip {
+      background: var(--green-dark);
+      padding: 60px clamp(24px, 6vw, 100px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .strip-text h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--white);
+    }
+    .strip-text p {
+      color: rgba(255,255,255,0.7);
+      margin-top: 8px;
+      max-width: 460px;
+    }
+    .strip-stat {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* ── Featured item ── */
+    #featured {
+      background: var(--green-pale);
+    }
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .featured-img-wrap {
+      position: relative;
+    }
+    .featured-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .featured-tag {
+      position: absolute;
+      top: 24px;
+      left: -20px;
+      background: var(--gold);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-md);
+    }
+    .featured-copy .label-cap { margin-bottom: 12px; display: block; }
+    .featured-copy h2 { font-size: clamp(2rem, 4vw, 3.4rem); margin-bottom: 20px; }
+    .featured-copy p { color: var(--text-muted); margin-bottom: 12px; line-height: 1.75; }
+    .featured-copy .btn { margin-top: 20px; }
+
+    /* ── Testimonial strip ── */
+    #testimonials {
+      background: var(--cream-dark);
+      overflow: hidden;
+    }
+    .testimonials-track {
+      display: flex;
+      gap: 24px;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    #testimonials:hover .testimonials-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 32px;
+      min-width: 320px;
+      max-width: 320px;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 12px; }
+    .testi-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: var(--text-dark);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .testi-author {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .bestsellers-grid { grid-template-columns: 1fr 1fr; }
+      .featured-inner { grid-template-columns: 1fr; gap: 40px; }
+      .featured-img-wrap img { aspect-ratio: 16/9; }
+      .featured-tag { left: 16px; }
+    }
+    @media (max-width: 600px) {
+      .bestsellers-grid { grid-template-columns: 1fr; }
+      .strip-stat { gap: 32px; }
+      #brand-strip { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page Loader -->
+<div id="page-loader">
+  <img class="loader-logo" src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes" />
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- Navbar -->
+<nav id="navbar" class="nav-dark">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+    <li><a href="menu.html" id="nav-menu">Menu</a></li>
+    <li><a href="experience.html" id="nav-exp">The Wild Experience</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+  </ul>
+  <button id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<nav id="nav-drawer">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="experience.html">The Wild Experience</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section id="hero">
+  <img id="hero-bg" src="assets/Wild/AC207494.jpg" alt="Wildshakes Cafe ambiance" loading="eager" />
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Premium · Handcrafted · Est. 2020</div>
+    <h1 class="hero-title">Taste the <em>Wild Side</em><br>of Premium</h1>
+    <p class="hero-sub">Handcrafted signature shakes, artisan coffee &amp; gourmet bites — every sip, every bite, served <em>wild.</em></p>
+    <div class="hero-actions">
+      <a href="menu.html" class="btn btn-primary">Explore Our Menu &rarr;</a>
+      <a href="experience.html" class="btn btn-outline">The Wild Experience</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════════════ BESTSELLERS ════════════════ -->
+<section id="bestsellers" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">Fan Favourites</span>
+    <h2>Our Bestsellers</h2>
+    <div class="divider"></div>
+    <p>The crowd has spoken — these are the creations that keep guests coming back.</p>
+  </div>
+  <div class="bestsellers-grid">
+    <div class="best-card reveal reveal-delay-1">
+      <img src="assets/Shakes/Premium Milk Shakes/Cookies and Cream.jpg" alt="Cookies and Cream Shake" loading="lazy" />
+      <div class="best-overlay">
+        <span class="best-cat">⭐ Signature Shakes</span>
+        <h3>Cookies &amp; Cream</h3>
+        <span class="best-cta">View Menu →</span>
+      </div>
+      <a href="menu.html" style="position:absolute;inset:0;z-index:3;"></a>
+    </div>
+    <div class="best-card reveal reveal-delay-2">
+      <img src="assets/Coffee/AC207363.jpg" alt="Premium Coffee" loading="lazy" />
+      <div class="best-overlay">
+        <span class="best-cat">☕ Premium Coffee</span>
+        <h3>Artisan Cold Brew</h3>
+        <span class="best-cta">View Menu →</span>
+      </div>
+      <a href="menu.html" style="position:absolute;inset:0;z-index:3;"></a>
+    </div>
+    <div class="best-card reveal reveal-delay-3">
+      <img src="assets/Food/1DX_1820.jpg" alt="Gourmet Food" loading="lazy" />
+      <div class="best-overlay">
+        <span class="best-cat">🍽️ Gourmet Food</span>
+        <h3>Chef's Signature Plate</h3>
+        <span class="best-cta">View Menu →</span>
+      </div>
+      <a href="menu.html" style="position:absolute;inset:0;z-index:3;"></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ BRAND STRIP ════════════════ -->
+<section id="brand-strip">
+  <div class="strip-text reveal">
+    <h2>Where Wild Meets Refined</h2>
+    <p>8 thriving branches, thousands of happy customers, and one relentless passion — to serve you the very best.</p>
+    <a href="contact.html" class="btn btn-primary" style="margin-top:28px;">Franchise Opportunity →</a>
+  </div>
+  <div class="strip-stat">
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num" data-count="8">0</div>
+      <div class="stat-label">Branches</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num" data-count="50000">0</div>
+      <div class="stat-label">Customers Served</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num" data-count="40">0</div>
+      <div class="stat-label">Menu Items</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FEATURED ════════════════ -->
+<section id="featured" class="section">
+  <div class="featured-inner">
+    <div class="featured-img-wrap reveal">
+      <img src="assets/Shakes/Premium Fruit shakes/Matcha Strawberry.jpg" alt="Matcha Strawberry Shake" loading="lazy" />
+      <div class="featured-tag">★ Staff Pick</div>
+    </div>
+    <div class="featured-copy reveal reveal-delay-2">
+      <span class="label-cap">Crafted With Passion</span>
+      <h2>Every Shake is a Masterpiece</h2>
+      <p>We don't just blend drinks — we compose experiences. Each shake is meticulously crafted from premium, locally sourced ingredients to deliver a taste that's unmistakably Wild.</p>
+      <p>From our signature velvet milk shakes to tropical fruit explosions, every glass tells a story.</p>
+      <a href="menu.html" class="btn btn-green">Discover Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<section id="testimonials" class="section" style="padding-left:0;padding-right:0;overflow:hidden;">
+  <div class="section-header reveal" style="padding:0 clamp(24px,6vw,100px);">
+    <span class="label-cap">Guest Love</span>
+    <h2>What People Are Saying</h2>
+    <div class="divider"></div>
+  </div>
+  <div style="overflow:hidden;padding:32px 0;margin-top:16px;">
+    <div class="testimonials-track">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The Matcha Strawberry shake is literally life-changing. I drive 45 minutes just for this."</p><p class="testi-author">— Maria S., Cebu</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Best vibes, best shakes. Wildshakes is our go-to for every celebration."</p><p class="testi-author">— Jerico T., Manila</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The Cookies &amp; Cream is criminally good. Staff is always so warm and welcoming."</p><p class="testi-author">— Ana P., Davao</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Gourmet food AND premium shakes in one place? This is the dream café."</p><p class="testi-author">— Paolo R., BGC</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The aesthetic is incredible — feels like a luxury café but still so welcoming."</p><p class="testi-author">— Sofia M., Quezon City</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Avocado shake + food platter combo hits different. Already on my second franchise inquiry form!"</p><p class="testi-author">— Dennis K., Makati</p></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The Matcha Strawberry shake is literally life-changing. I drive 45 minutes just for this."</p><p class="testi-author">— Maria S., Cebu</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Best vibes, best shakes. Wildshakes is our go-to for every celebration."</p><p class="testi-author">— Jerico T., Manila</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The Cookies &amp; Cream is criminally good. Staff is always so warm and welcoming."</p><p class="testi-author">— Ana P., Davao</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Gourmet food AND premium shakes in one place? This is the dream café."</p><p class="testi-author">— Paolo R., BGC</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"The aesthetic is incredible — feels like a luxury café but still so welcoming."</p><p class="testi-author">— Sofia M., Quezon City</p></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-quote">"Avocado shake + food platter combo hits different. Already on my second franchise inquiry form!"</p><p class="testi-author">— Dennis K., Makati</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+      <p>Where premium craftsmanship meets wild, vibrant energy. Every visit is an experience worth repeating.</p>
+      <div class="footer-social" style="margin-top:20px;">
+        <a href="https://www.facebook.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.tiktok.com/@wildshakescafe" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.88a8.17 8.17 0 004.78 1.52V7c-.01 0-1.33-.11-2.01-.31z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+        <li><a href="experience.html">The Wild Experience</a></li>
+        <li><a href="contact.html">Contact / Franchise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="menu.html#shakes">Signature Shakes</a></li>
+        <li><a href="menu.html#coffee">Premium Coffee</a></li>
+        <li><a href="menu.html#food">Gourmet Food</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul class="hours-list">
+        <li><span>Mon – Thu</span><span>10AM – 10PM</span></li>
+        <li><span>Fri – Sat</span><span>10AM – 12AM</span></li>
+        <li><span>Sunday</span><span>11AM – 10PM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wildshakes Cafe. All rights reserved.</span>
+    <span>Crafted with ♥ in the Philippines</span>
+  </div>
+</footer>
+
+<script>
+  // ── Loader ──
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('page-loader').classList.add('hidden');
+      document.getElementById('hero').classList.add('loaded');
+    }, 1200);
+  });
+
+  // ── Navbar scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Hamburger ──
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    drawer.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+
+  // ── Scroll reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); } });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ── Counter animation ──
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const target = +el.dataset.count;
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = target >= 1000
+            ? Math.floor(current).toLocaleString() + '+'
+            : Math.floor(current) + '+';
+          if (current >= target) clearInterval(timer);
+        }, 16);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // ── Cursor glow ──
+  const glow = document.getElementById('cursor-glow');
+  if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  } else { glow.style.display = 'none'; }
+</script>
+<script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "wildshakes-cafe",
+  "version": "1.0.0",
+  "description": "Premium multi-page website for Wildshakes Cafe",
+  "scripts": {
+    "dev": "npx --yes live-server --port=3000 --open=index.html",
+    "start": "npx --yes serve . -p 3000",
+    "preview": "npx --yes serve . -p 5000"
+  },
+  "keywords": ["wildshakes", "cafe", "website"],
+  "author": "Wildshakes Cafe",
+  "license": "UNLICENSED"
+}

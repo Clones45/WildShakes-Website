@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — Wildshakes Cafe</title>
+  <meta name="description" content="Oops! The page you're looking for doesn't exist. Head back to Wildshakes Cafe." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/jpeg" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <meta name="theme-color" content="#2D5A27" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: var(--black); display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; padding: 24px; }
+    .error-wrap { max-width: 560px; }
+    .error-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(6rem, 20vw, 14rem);
+      font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--gold);
+      line-height: 1;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+    .error-wrap img {
+      height: 60px;
+      margin: 0 auto 24px;
+      filter: brightness(0) invert(1);
+    }
+    .error-wrap h1 {
+      color: var(--white);
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .error-wrap p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+    .error-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <div class="error-wrap">
+    <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe" />
+    <div class="error-num">404</div>
+    <h1>Oops — This Page Went Wild</h1>
+    <p>Looks like this page is lost in the shake blender. Let's get you back to something delicious.</p>
+    <div class="error-links">
+      <a href="index.html" class="btn btn-primary">← Back to Home</a>
+      <a href="menu.html" class="btn btn-outline">Explore Menu</a>
+    </div>
+  </div>
+</body>
+</html>

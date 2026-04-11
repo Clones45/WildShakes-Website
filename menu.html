@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Wildshakes Cafe</title>
+  <meta name="description" content="Explore Wildshakes Cafe's full menu: Signature Shakes, Premium Coffee, and Gourmet Food. Premium ingredients, wild flavors." />
+  <meta name="keywords" content="wildshakes menu, signature shakes, premium coffee, gourmet food, Philippines cafe menu" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://wildshakes-cafe.vercel.app/menu" />
+  <link rel="icon" type="image/jpeg" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <link rel="apple-touch-icon" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <meta name="theme-color" content="#2D5A27" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Menu — Wildshakes Cafe" />
+  <meta property="og:description" content="Signature Shakes, Premium Coffee and Gourmet Food — explore our full premium menu." />
+  <meta property="og:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207514.jpg" />
+  <meta property="og:url" content="https://wildshakes-cafe.vercel.app/menu" />
+  <meta property="og:site_name" content="Wildshakes Cafe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Menu — Wildshakes Cafe" />
+  <meta name="twitter:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207514.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Tab nav ── */
+    #tab-nav {
+      background: var(--white);
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      box-shadow: 0 2px 16px rgba(45,90,39,0.08);
+      border-bottom: 2px solid var(--cream-dark);
+    }
+    .tab-btn {
+      padding: 20px 36px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      position: relative;
+      transition: color var(--transition-fast);
+      font-family: 'Inter', sans-serif;
+    }
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0; right: 0;
+      height: 3px;
+      background: var(--green-dark);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+    }
+    .tab-btn.active {
+      color: var(--green-dark);
+    }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-btn:hover { color: var(--green-mid); }
+
+    /* ── Menu sections ── */
+    .menu-section { display: none; }
+    .menu-section.active { display: block; }
+
+    /* ── Sub-header ── */
+    .sub-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0 32px;
+    }
+    .sub-header h3 {
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      white-space: nowrap;
+    }
+    .sub-header-line {
+      flex: 1;
+      height: 1px;
+      background: var(--cream-dark);
+    }
+
+    /* ── Menu grid ── */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    /* ── Menu card ── */
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+      cursor: default;
+    }
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg), 0 0 0 2px rgba(201,168,76,0.4);
+    }
+    .menu-card-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+    .menu-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .menu-card:hover .menu-card-img-wrap img { transform: scale(1.08); }
+    .menu-card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 50px;
+    }
+    .menu-card-body {
+      padding: 20px 22px 24px;
+    }
+    .menu-card-body h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .menu-card-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .menu-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--cream-dark);
+    }
+    .menu-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    .add-btn {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast);
+      font-weight: 700;
+    }
+    .add-btn:hover {
+      background: var(--green-dark);
+      color: var(--white);
+      transform: rotate(90deg) scale(1.1);
+    }
+
+    /* ── Filter/search bar ── */
+    #menu-search-wrap {
+      background: var(--green-pale);
+      padding: 24px clamp(24px,6vw,100px);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    #menu-search {
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 20px;
+      border-radius: 50px;
+      border: 1.5px solid var(--cream-dark);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      background: var(--white);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    #menu-search:focus {
+      border-color: var(--green-mid);
+      box-shadow: 0 0 0 3px rgba(79,121,66,0.12);
+    }
+    #menu-search::placeholder { color: var(--text-muted); }
+    .search-icon-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .tab-btn { padding: 16px 18px; font-size: 0.75rem; }
+      .menu-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .menu-card-img-wrap { height: 180px; }
+    }
+    @media (max-width: 400px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Page Loader -->
+<div id="page-loader">
+  <img class="loader-logo" src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes" />
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- Navbar -->
+<nav id="navbar" class="scrolled">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="experience.html">The Wild Experience</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<nav id="nav-drawer">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="experience.html">The Wild Experience</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero" id="page-hero">
+  <img src="assets/Wild/AC207514.jpg" alt="Menu hero" loading="eager" />
+  <div class="page-hero-content">
+    <span class="label-cap" style="color:var(--gold-light);">What We Serve</span>
+    <h1>Our Menu</h1>
+    <p>Premium ingredients. Wild combinations. Unforgettable taste.</p>
+  </div>
+</div>
+
+<!-- Search bar -->
+<div id="menu-search-wrap">
+  <span class="search-icon-label">🔍 Search items:</span>
+  <input type="text" id="menu-search" placeholder="e.g. Matcha, Avocado, Coffee…" autocomplete="off" />
+</div>
+
+<!-- Tab nav -->
+<div id="tab-nav">
+  <button class="tab-btn active" data-tab="shakes" id="tab-shakes">🥤 Signature Shakes</button>
+  <button class="tab-btn" data-tab="coffee" id="tab-coffee">☕ Premium Coffee</button>
+  <button class="tab-btn" data-tab="food" id="tab-food">🍽️ Gourmet Food</button>
+</div>
+
+<!-- ════════════════ SHAKES SECTION ════════════════ -->
+<div id="section-shakes" class="menu-section active section" style="padding-top:48px;">
+
+  <div class="sub-header reveal">
+    <div class="sub-header-line"></div>
+    <h3>🥛 Premium Milk Shakes</h3>
+    <div class="sub-header-line"></div>
+  </div>
+  <div class="menu-grid" id="milk-grid">
+    <div class="menu-card reveal reveal-delay-1" data-name="cookies and cream">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Cookies and Cream.jpg" alt="Cookies and Cream" loading="lazy" /><span class="menu-card-badge">★ Bestseller</span></div>
+      <div class="menu-card-body"><h3>Cookies &amp; Cream</h3><p>Velvety vanilla base blended with crushed Oreo cookies and a lavish cream finish.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="dark mocha">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Dark Mocha.jpg" alt="Dark Mocha" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Dark Mocha</h3><p>Rich, bold espresso meets decadent dark chocolate in an indulgent frozen blend.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="matcha oreo">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Matcha Oreo.jpg" alt="Matcha Oreo" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Matcha Oreo</h3><p>Premium ceremonial matcha swirled through a creamy Oreo milk shake base.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="coffee crumble">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Coffee Crumble.jpg" alt="Coffee Crumble" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Coffee Crumble</h3><p>Coffee-soaked crumble folded into a creamy milk shake — crunchy meets smooth.</p><div class="menu-card-footer"><span class="menu-price">₱ 169</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="chocolate kisses">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Chocolate Kisses.jpg" alt="Chocolate Kisses" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Chocolate Kisses</h3><p>Classic Belgian chocolate with a hint of sea salt — pure, simple indulgence.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="salted caramel">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Salted Caramel.jpg" alt="Salted Caramel" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Salted Caramel</h3><p>Buttery caramel ribboned through chilled cream with a delicate pinch of sea salt.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="oreo milo">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Oreo Milo.jpg" alt="Oreo Milo" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Oreo Milo</h3><p>Childhood nostalgia upgraded — Milo malt meets Oreo crumble in a premium shake.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="matcha">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Matcha.jpg" alt="Pure Matcha" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Pure Matcha</h3><p>Ceremonial-grade Japanese matcha, blended pure — no distractions, just excellence.</p><div class="menu-card-footer"><span class="menu-price">₱ 155</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="strawberry">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Milk Shakes/Strawberry.jpg" alt="Strawberry" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Strawberry</h3><p>Ripe strawberries blended with fresh cream — bright, refreshing, and wildly smooth.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+  </div>
+
+  <div class="sub-header reveal" style="margin-top:64px;">
+    <div class="sub-header-line"></div>
+    <h3>🍓 Premium Fruit Shakes</h3>
+    <div class="sub-header-line"></div>
+  </div>
+  <div class="menu-grid" id="fruit-grid">
+    <div class="menu-card reveal reveal-delay-1" data-name="matcha strawberry">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Matcha Strawberry.jpg" alt="Matcha Strawberry" loading="lazy" /><span class="menu-card-badge">★ Staff Pick</span></div>
+      <div class="menu-card-body"><h3>Matcha Strawberry</h3><p>A gorgeous union of earthy matcha and sun-ripened strawberries over a cloud of cream.</p><div class="menu-card-footer"><span class="menu-price">₱ 169</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="avocado">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Avocado.jpg" alt="Avocado" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Avocado</h3><p>Creamy Benguet avocado blended with condensed milk — silky, luscious, filling.</p><div class="menu-card-footer"><span class="menu-price">₱ 165</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="avo-mango">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Avo-mango.jpg" alt="Avo-Mango" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Avo-Mango</h3><p>Tropical duo — ripe Carabao mango meets buttery avocado in a brilliant swirl.</p><div class="menu-card-footer"><span class="menu-price">₱ 175</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="mango">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Mango.jpg" alt="Mango" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Philippine Mango</h3><p>The Philippine's finest Carabao mango — thick, pulpy, and unmistakably golden.</p><div class="menu-card-footer"><span class="menu-price">₱ 155</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="buko pandan">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Buko Pandan.jpg" alt="Buko Pandan" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Buko Pandan</h3><p>Young coconut strips and fragrant pandan — a tropical heirloom reimagined.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="ube with cheese">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Ube w_ Cheese.jpg" alt="Ube with Cheese" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Ube w/ Cheese</h3><p>Vibrant ube halaya crowned with a salty-sweet cheese foam — a Filipino pride.</p><div class="menu-card-footer"><span class="menu-price">₱ 165</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="peach mango">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Peach Mango.jpg" alt="Peach Mango" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Peach Mango</h3><p>Juicy peaches and tropical mango — a syrupy, sun-kissed tropical escape.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="blueberry creamcheese">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Blueberry Creamcheese.jpg" alt="Blueberry Creamcheese" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Blueberry Creamcheese</h3><p>Plump blueberries with a tangy cream cheese swirl — decadently smooth.</p><div class="menu-card-footer"><span class="menu-price">₱ 169</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="strawberry creamcheese">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Strawberry Creamcheese.jpg" alt="Strawberry Creamcheese" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Strawberry Creamcheese</h3><p>Fresh strawberries folded into a silky cream cheese base — refreshingly rich.</p><div class="menu-card-footer"><span class="menu-price">₱ 165</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="salted mango caramel">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Salted Mango Caramel.jpg" alt="Salted Mango Caramel" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Salted Mango Caramel</h3><p>Golden mango kissed with house-made caramel and a hint of fleur de sel.</p><div class="menu-card-footer"><span class="menu-price">₱ 175</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="green apple kiwi">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Green Apple Kiwi.jpg" alt="Green Apple Kiwi" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Green Apple Kiwi</h3><p>Crisp Granny Smith apple and tart kiwi — a zesty, refreshing wild blend.</p><div class="menu-card-footer"><span class="menu-price">₱ 159</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="durian">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Durian.jpg" alt="Durian" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Durian</h3><p>For the brave — premium Davao durian, creamy and intensely aromatic. Bold as it gets.</p><div class="menu-card-footer"><span class="menu-price">₱ 175</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="buko">
+      <div class="menu-card-img-wrap"><img src="assets/Shakes/Premium Fruit shakes/Buko.jpg" alt="Buko" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Buko</h3><p>Pure young coconut bliss — clean, light, and deeply refreshing.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ COFFEE SECTION ════════════════ -->
+<div id="section-coffee" class="menu-section section" style="padding-top:48px;">
+  <div class="section-header reveal">
+    <span class="label-cap">Artisan Brews</span>
+    <h2>Premium Coffee</h2>
+    <div class="divider"></div>
+    <p>Single-origin beans, expert brewing — every cup is a ritual.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card reveal reveal-delay-1" data-name="cold brew">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207363.jpg" alt="Cold Brew" loading="lazy" /><span class="menu-card-badge">★ Bestseller</span></div>
+      <div class="menu-card-body"><h3>Signature Cold Brew</h3><p>18-hour steeped Arabica — silky smooth with a bold, chocolatey finish.</p><div class="menu-card-footer"><span class="menu-price">₱ 145</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="latte">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207366.jpg" alt="Classic Latte" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Classic Latte</h3><p>Double-shot espresso with silky steamed whole milk and a perfect microfoam top.</p><div class="menu-card-footer"><span class="menu-price">₱ 135</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="cappuccino">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207377.jpg" alt="Cappuccino" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Cappuccino</h3><p>Equal parts espresso, steamed milk, and velvety foam — the Italian staple, perfected.</p><div class="menu-card-footer"><span class="menu-price">₱ 135</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="americano">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207380.jpg" alt="Americano" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Americano</h3><p>Bold triple-shot espresso lengthened with hot water — sharp, clean, powerful.</p><div class="menu-card-footer"><span class="menu-price">₱ 125</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="iced caramel latte">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207382.jpg" alt="Iced Caramel Latte" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Iced Caramel Latte</h3><p>Double espresso over ice, drizzled with caramel ribbons and chilled whole milk.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="matcha latte">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207385.jpg" alt="Matcha Latte" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Matcha Latte</h3><p>Ceremonial-grade matcha whisked with oat milk — earthy, sweet, and vibrant green.</p><div class="menu-card-footer"><span class="menu-price">₱ 155</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="spanish latte">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207387.jpg" alt="Spanish Latte" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Spanish Latte</h3><p>Condensed milk meets fresh espresso and creamy foam — sweet, indulgent, addictive.</p><div class="menu-card-footer"><span class="menu-price">₱ 149</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="mocha">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207389.jpg" alt="Mocha" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Mocha</h3><p>Espresso and dark chocolate ganache, steamed with premium milk — sinfully good.</p><div class="menu-card-footer"><span class="menu-price">₱ 145</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="affogato">
+      <div class="menu-card-img-wrap"><img src="assets/Coffee/AC207394.jpg" alt="Affogato" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Affogato</h3><p>A scoop of house-made vanilla gelato drowned in a freshly pulled espresso shot.</p><div class="menu-card-footer"><span class="menu-price">₱ 169</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FOOD SECTION ════════════════ -->
+<div id="section-food" class="menu-section section" style="padding-top:48px;">
+  <div class="section-header reveal">
+    <span class="label-cap">Gourmet Bites</span>
+    <h2>Gourmet Food</h2>
+    <div class="divider"></div>
+    <p>From light bites to hearty plates — every dish is crafted with wild ambition.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card reveal reveal-delay-1" data-name="truffle fries">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1820.jpg" alt="Truffle Fries" loading="lazy" /><span class="menu-card-badge">★ Bestseller</span></div>
+      <div class="menu-card-body"><h3>Wild Truffle Fries</h3><p>Crispy hand-cut fries tossed with truffle oil, parmesan, and fresh herbs.</p><div class="menu-card-footer"><span class="menu-price">₱ 195</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="pasta">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1822.jpg" alt="Gourmet Pasta" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Pasta Carbonara</h3><p>Al dente pasta, guanciale, egg yolk, and aged Pecorino — Roman perfection.</p><div class="menu-card-footer"><span class="menu-price">₱ 225</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="nachos">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1824.jpg" alt="Loaded Nachos" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Loaded Nachos</h3><p>House tortilla chips piled with pulled pork, cheddar cheese sauce, jalapeños, and pico de gallo.</p><div class="menu-card-footer"><span class="menu-price">₱ 215</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="chicken sandwich">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1826.jpg" alt="Crispy Chicken Sandwich" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Crispy Chicken</h3><p>Double-fried chicken thigh with house aioli and pickled slaw on a brioche bun.</p><div class="menu-card-footer"><span class="menu-price">₱ 235</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="waffles">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1835.jpg" alt="Belgian Waffles" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Belgian Waffles</h3><p>Golden, crispy-edged waffles with fresh berries, whipped cream, and maple syrup drizzle.</p><div class="menu-card-footer"><span class="menu-price">₱ 189</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="acai bowl">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1959.jpg" alt="Acai Bowl" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Açaí Bowl</h3><p>Blended açaí base topped with granola, fresh fruit, honey, and chia seeds.</p><div class="menu-card-footer"><span class="menu-price">₱ 245</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="avocado toast">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1962.jpg" alt="Avocado Toast" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Premium Avocado Toast</h3><p>Sourdough topped with smashed avocado, poached egg, microgreens, and chili flakes.</p><div class="menu-card-footer"><span class="menu-price">₱ 189</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="quesadilla">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1963.jpg" alt="Quesadilla" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Quesadilla</h3><p>Flour tortilla stuffed with cheddar, roasted peppers, and grilled chicken strips.</p><div class="menu-card-footer"><span class="menu-price">₱ 199</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="flatbread">
+      <div class="menu-card-img-wrap"><img src="assets/Food/1DX_1966.jpg" alt="Gourmet Flatbread" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Gourmet Flatbread</h3><p>Stone-baked flatbread with buffalo mozzarella, fresh basil, and heirloom tomatoes.</p><div class="menu-card-footer"><span class="menu-price">₱ 215</span><button class="add-btn" title="Add to order">+</button></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+      <p>Where premium craftsmanship meets wild, vibrant energy. Every visit is an experience worth repeating.</p>
+      <div class="footer-social" style="margin-top:20px;">
+        <a href="https://www.facebook.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.tiktok.com/@wildshakescafe" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.88a8.17 8.17 0 004.78 1.52V7c-.01 0-1.33-.11-2.01-.31z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Our Menu</a></li>
+        <li><a href="experience.html">The Wild Experience</a></li>
+        <li><a href="contact.html">Contact / Franchise</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="#" onclick="switchTab('shakes')">Signature Shakes</a></li>
+        <li><a href="#" onclick="switchTab('coffee')">Premium Coffee</a></li>
+        <li><a href="#" onclick="switchTab('food')">Gourmet Food</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul class="hours-list">
+        <li><span>Mon – Thu</span><span>10AM – 10PM</span></li>
+        <li><span>Fri – Sat</span><span>10AM – 12AM</span></li>
+        <li><span>Sunday</span><span>11AM – 10PM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wildshakes Cafe. All rights reserved.</span>
+    <span>Crafted with ♥ in the Philippines</span>
+  </div>
+</footer>
+
+<script>
+  // Loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('page-loader').classList.add('hidden');
+      document.getElementById('page-hero').classList.add('loaded');
+    }, 900);
+  });
+
+  // Navbar
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // Hamburger
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    drawer.classList.toggle('open');
+    overlay.classList.toggle('open');
+  });
+  overlay.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+  });
+
+  // Tabs
+  function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+    document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+    document.getElementById(`section-${tab}`).classList.add('active');
+    window.scrollTo({ top: document.getElementById('tab-nav').offsetTop - 82, behavior: 'smooth' });
+  }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
+  // Check URL hash for direct tab links
+  const hash = window.location.hash.replace('#','');
+  if (['shakes','coffee','food'].includes(hash)) switchTab(hash);
+
+  // Search
+  document.getElementById('menu-search').addEventListener('input', function() {
+    const q = this.value.toLowerCase().trim();
+    document.querySelectorAll('.menu-card').forEach(card => {
+      const name = card.dataset.name || '';
+      const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+      const match = !q || name.includes(q) || title.includes(q) || desc.includes(q);
+      card.style.display = match ? '' : 'none';
+    });
+    // If searching, show all sections
+    if (q) {
+      document.querySelectorAll('.menu-section').forEach(s => s.classList.add('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    } else {
+      document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+      document.getElementById('section-shakes').classList.add('active');
+      document.querySelector('[data-tab="shakes"]').classList.add('active');
+    }
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => ro.observe(el));
+
+  // Cursor glow
+  const glow = document.getElementById('cursor-glow');
+  if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+  } else { glow.style.display = 'none'; }
+</script>
+<script src="app.js" defer></script>
+</body>
+</html>

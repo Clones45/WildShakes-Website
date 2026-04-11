@@ -1,0 +1,65 @@
+Role & Goal:
+Act as an elite frontend developer and UI/UX designer. Build a premium, highly responsive, and visually stunning multi-page website for "Wildshakes Cafe". The design must feel "expensive," utilizing modern web design trends like smooth scroll, subtle fade-in animations, high-quality typography (e.g., a mix of elegant serif for headings and clean sans-serif for body), and a refined color palette that complements the brand's green logo.
+
+Asset Architecture:
+You must strictly use the following local file paths for all images and media. Assume the root directory has an assets folder structured exactly like this:
+
+Logo: assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.png (Use this for the navbar and footer).
+
+Categories:
+
+assets/Coffee/ (Use for the Coffee menu section)
+
+assets/Food/ (Use for the Food menu section)
+
+assets/Shakes/ (Use for the Shakes/Signature drinks menu section)
+
+assets/Wild/ (Use for the "About Us" or "Ambiance/Gallery" section showing customers and the cafe vibe)
+
+assets/Contact Photos/ (Reserve strictly for the Contact Page)
+
+Page Structure & Requirements:
+
+1. Global Elements:
+
+Navbar: Sticky, glassmorphism effect (blur), featuring the Wildshakes logo on the left, and elegant navigation links (Home, Menu, The Wild Experience, Contact) on the right.
+
+Footer: Dark, premium footer with the logo, quick links, social media icons, and opening hours.
+
+2. Home Page (The Hook):
+
+Hero Section: Full-screen hero with a high-resolution background image (use one from the Shakes or Wild folder). Include a bold, elegant headline (e.g., "Taste the Wild Side of Premium"), a subheadline, and a primary call-to-action button ("Explore Our Menu").
+
+Bestsellers Preview: A sleek, horizontal scrolling or grid section highlighting 3 premium items (one from Shakes, one from Coffee, one from Food). Apply subtle hover effects (e.g., slight image scale-up).
+
+3. Menu Page (The Catalog):
+
+Create an interactive, tabbed, or cleanly segmented menu layout.
+
+Divide it into "Signature Shakes", "Premium Coffee", and "Gourmet Food", pulling the respective images from assets/Shakes/, assets/Coffee/, and assets/Food/.
+
+Give each item a clean card design with a title, a short elegant description, and a price placeholder.
+
+4. The Wild Experience (About/Ambiance):
+
+A masonry gallery or a sleek asymmetrical layout using images from the assets/Wild/ folder.
+
+Include copy that emphasizes the vibrant, high-energy, yet premium atmosphere of the cafe.
+
+5. Contact Page (Legacy Landing Page Conversion):
+
+Crucial Instruction: Replicate the exact content, copy, and structural flow of the current landing page found at https://www.wildshakes.com/.
+
+Upgrade the aesthetic of this layout to match the new "expensive" design system of the rest of the site.
+
+Use the images from the assets/Contact Photos/ folder to populate this page.
+
+Include a functional-looking modern contact form, a map placeholder, and the official address/contact details.
+
+Technical Constraints:
+
+Ensure all components are fully responsive (Mobile, Tablet, Desktop).
+
+Use modern CSS (Flexbox/Grid) and clean, modular code.
+
+Include subtle entrance animations (e.g., elements fading and sliding up as they scroll into view) to enforce the premium feel.

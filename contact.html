@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Franchise &amp; Contact — Wildshakes Cafe</title>
+  <meta name="description" content="Join the Wildshakes family. Learn about our franchise opportunity and get in touch. Growing brand, low investment, full business support." />
+  <meta name="keywords" content="wildshakes franchise, cafe franchise Philippines, low investment franchise, wildshakes contact" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://wildshakes-cafe.vercel.app/contact" />
+  <link rel="icon" type="image/jpeg" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <link rel="apple-touch-icon" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
+  <meta name="theme-color" content="#2D5A27" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Franchise &amp; Contact — Wildshakes Cafe" />
+  <meta property="og:description" content="Be part of the fastest-growing premium café brand in the Philippines. Low investment, full support." />
+  <meta property="og:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
+  <meta property="og:url" content="https://wildshakes-cafe.vercel.app/contact" />
+  <meta property="og:site_name" content="Wildshakes Cafe" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Franchise &amp; Contact — Wildshakes Cafe" />
+  <meta name="twitter:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Why Franchise ── */
+    #why-franchise {
+      background: var(--cream);
+    }
+    .franchise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 12px;
+    }
+    .franchise-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition), box-shadow var(--transition);
+      border-top: 4px solid var(--green-mid);
+    }
+    .franchise-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .franchise-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .franchise-card-body {
+      padding: 28px;
+    }
+    .franchise-card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .franchise-card-body h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--green-dark);
+    }
+    .franchise-card-body p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Stats band ── */
+    #stats-band {
+      background: linear-gradient(135deg, var(--green-dark), #1D3D1A);
+      padding: 72px clamp(24px, 6vw, 100px);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .stats-band-item {}
+    .stats-band-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stats-band-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-top: 8px;
+    }
+
+    /* ── Contact form + info ── */
+    #contact-section {
+      background: var(--green-pale);
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-info .label-cap { margin-bottom: 12px; display: block; }
+    .contact-info h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+    .contact-info p { color: var(--text-muted); line-height: 1.8; margin-bottom: 28px; }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+    .contact-detail-text span {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 48px 44px;
+      box-shadow: var(--shadow-lg);
+    }
+    .form-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .form-card > p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      margin-top: 8px;
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit:hover {
+      background: var(--green-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(45,90,39,0.3);
+    }
+    .form-submit.sending {
+      background: var(--green-mid);
+      pointer-events: none;
+    }
+    #form-success {
+      display: none;
+      background: var(--green-pale);
+      border: 1.5px solid var(--green-mid);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      color: var(--green-dark);
+      font-weight: 600;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* ── Photo strip ── */
+    #photo-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 320px;
+      overflow: hidden;
+    }
+    #photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.4s ease, transform 0.5s ease;
+      filter: brightness(0.75);
+    }
+    #photo-strip img:hover {
+      filter: brightness(1);
+      transform: scale(1.04);
+    }
+
+    /* ── Map ── */
+    #map-section {
+      background: var(--cream-dark);
+    }
+    .map-container {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      height: 400px;
+      background: #d8e4d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .map-placeholder {
+      text-align: center;
+      color: var(--green-dark);
+    }
+    .map-placeholder .map-pin {
+      font-size: 3rem;
+      animation: mapBounce 2s ease-in-out infinite;
+    }
+    @keyframes mapBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .map-placeholder h3 {
+      margin: 12px 0 8px;
+      color: var(--green-dark);
+    }
+    .map-placeholder p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: start;
+    }
+    .branch-list { background: var(--white); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm); }
+    .branch-list h3 { font-size: 1.1rem; margin-bottom: 20px; color: var(--green-dark); }
+    .branch-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--cream-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: 6px;
+      padding-left: 8px;
+    }
+    .branch-item:hover { background: var(--green-pale); }
+    .branch-item:last-child { border-bottom: none; }
+    .branch-dot {
+      width: 10px; height: 10px;
+      background: var(--green-mid);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .branch-item-text strong { display: block; font-size: 0.88rem; color: var(--text-dark); }
+    .branch-item-text span { font-size: 0.78rem; color: var(--text-muted); }
+
+    @media (max-width: 900px) {
+      .franchise-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      #stats-band { grid-template-columns: repeat(2, 1fr); }
+      .map-grid { grid-template-columns: 1fr; }
+      #photo-strip { grid-template-columns: repeat(2, 1fr); height: 240px; }
+    }
+    @media (max-width: 640px) {
+      .franchise-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 32px 24px; }
+      #stats-band { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      #photo-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="page-loader">
+  <img class="loader-logo" src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes" />
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<div class="cursor-glow" id="cursor-glow"></div>
+
+<!-- Navbar -->
+<nav id="navbar" class="nav-dark">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="experience.html">The Wild Experience</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<nav id="nav-drawer">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="experience.html">The Wild Experience</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero" id="page-hero">
+  <img src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Franchise hero" loading="eager" />
+  <div class="page-hero-content">
+    <span class="label-cap" style="color:var(--gold-light);">Join the Family</span>
+    <h1>Franchise &amp; Contact</h1>
+    <p>Be part of the fastest-growing premium café brand in the Philippines.</p>
+  </div>
+</div>
+
+<!-- ════════════════ WHY FRANCHISE ════════════════ -->
+<section id="why-franchise" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">The Opportunity</span>
+    <h2>Why Franchise With Us?</h2>
+    <div class="divider"></div>
+    <p>Wild Shakes is more than a café — it's a thriving business ecosystem built for franchisee success.</p>
+  </div>
+  <div class="franchise-grid">
+    <div class="franchise-card reveal reveal-delay-1">
+      <img class="franchise-card-img" src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Growing Brand" loading="lazy" />
+      <div class="franchise-card-body">
+        <div class="franchise-card-icon">🌱</div>
+        <h3>Growing Brand</h3>
+        <p>Wild Shakes is a fast-expanding brand with 8 thriving branches and counting! Our strong customer demand, innovative menu, and proven business model make us a go-to choice for aspiring entrepreneurs. As we continue to grow, we provide excellent opportunities for partners to be part of our success story!</p>
+      </div>
+    </div>
+    <div class="franchise-card reveal reveal-delay-2">
+      <img class="franchise-card-img" src="assets/Contact Photos/67c7fed87a90e_LOWINVESTMENTHIFHRETURNS-4.jpg" alt="Low Investment" loading="lazy" />
+      <div class="franchise-card-body">
+        <div class="franchise-card-icon">💰</div>
+        <h3>Low Investment</h3>
+        <p>Wild Shakes offers an affordable startup cost with strong profit potential. With our established brand presence, efficient operations, and a product lineup that customers consistently enjoy, our business model is designed to support franchisees in building a profitable venture and sustainable growth over time. Get started with confidence!</p>
+      </div>
+    </div>
+    <div class="franchise-card reveal reveal-delay-3">
+      <img class="franchise-card-img" src="assets/Contact Photos/67c7fd3f6908f_ComprehensiveTraining1500x2000px.jpg" alt="Full Business Support" loading="lazy" />
+      <div class="franchise-card-body">
+        <div class="franchise-card-icon">🤝</div>
+        <h3>Full Business Support</h3>
+        <p>At Wild Shakes, we set our franchisees up for success with comprehensive business support from day one. Our team provides hands-on guidance in training, marketing, store setup, and daily operations, ensuring a smooth and profitable journey. With our proven system and ongoing assistance, you can confidently run your own Wild Shakes branch!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ STATS ════════════════ -->
+<div id="stats-band">
+  <div class="stats-band-item reveal">
+    <div class="stats-band-num" data-count="8">0</div>
+    <div class="stats-band-label">Active Branches</div>
+  </div>
+  <div class="stats-band-item reveal reveal-delay-1">
+    <div class="stats-band-num" data-count="5">0</div>
+    <div class="stats-band-label">Years in Business</div>
+  </div>
+  <div class="stats-band-item reveal reveal-delay-2">
+    <div class="stats-band-num" data-count="40">0</div>
+    <div class="stats-band-label">Menu Items</div>
+  </div>
+  <div class="stats-band-item reveal reveal-delay-3">
+    <div class="stats-band-num" data-count="98">0</div>
+    <div class="stats-band-label">% Franchisee Satisfaction</div>
+  </div>
+</div>
+
+<!-- ════════════════ PHOTO STRIP ════════════════ -->
+<div id="photo-strip">
+  <img src="assets/Contact Photos/67c7ffdc4e94f_ComprehensiveTraining1500x2000px-2.jpg" alt="Franchise support" loading="lazy" />
+  <img src="assets/Contact Photos/67c7ffe2da8fc_ComprehensiveTraining1500x2000px-3.jpg" alt="Training" loading="lazy" />
+  <img src="assets/Contact Photos/67c803757f8c8_ComprehensiveTraining1500x2000px750x1000px-2.jpg" alt="Business support" loading="lazy" />
+  <img src="assets/Contact Photos/67c8386233cc0_LOWINVESTMENTHIFHRETURNS-5.jpg" alt="Investment returns" loading="lazy" />
+</div>
+
+<!-- ════════════════ CONTACT + FORM ════════════════ -->
+<section id="contact-section" class="section">
+  <div class="contact-inner">
+
+    <!-- Info -->
+    <div class="contact-info reveal">
+      <span class="label-cap">Get In Touch</span>
+      <h2>What Are You Waiting For?</h2>
+      <p>For inquiries about franchising, catering, events, or any questions about Wildshakes Cafe, we'd love to hear from you. Fill in the form and our team will get back to you within 24–48 hours.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <strong>Head Office</strong>
+          <span>Philippines (Exact address provided upon inquiry)</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <strong>Phone / Viber</strong>
+          <span>+63 XXX XXX XXXX</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span>franchise@wildshakes.com</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📱</div>
+        <div class="contact-detail-text">
+          <strong>Social Media</strong>
+          <span>@wildshakescafe on Facebook &amp; Instagram</span>
+        </div>
+      </div>
+
+      <!-- Mini gallery from contact photos -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px;border-radius:var(--radius-md);overflow:hidden;">
+        <img src="assets/Contact Photos/67c83cd4902a2_LOWINVESTMENTHIFHRETURNS-6.jpg" alt="Wildshakes franchise" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-sm);" loading="lazy" />
+        <img src="assets/Contact Photos/67c83da80b04a_LOWINVESTMENTHIFHRETURNS48x20in.jpg" alt="Wildshakes growth" style="width:100%;height:140px;object-fit:cover;border-radius:var(--radius-sm);" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-card reveal reveal-delay-2">
+      <h3>Send Us a Message</h3>
+      <p>Fill in your details and our franchise team will reach out to you shortly.</p>
+      <form id="franchise-form" novalidate>
+        <div class="form-fields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="e.g. Maria" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="e.g. Santos" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone / Viber</label>
+            <input type="tel" id="phone" name="phone" placeholder="+63 900 000 0000" />
+          </div>
+          <div class="form-group">
+            <label for="location">Desired Franchise Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Cebu City, Davao, BGC…" />
+          </div>
+          <div class="form-group">
+            <label for="inquiry">Type of Inquiry</label>
+            <select id="inquiry" name="inquiry">
+              <option value="">Select inquiry type…</option>
+              <option value="franchise">Franchise Opportunity</option>
+              <option value="catering">Catering / Events</option>
+              <option value="general">General Inquiry</option>
+              <option value="media">Media / Partnerships</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about yourself and your goals…"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submit-btn">Send Inquiry →</button>
+          <div id="form-success">✅ Thank you! We've received your inquiry and will reach out within 24–48 hours.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ MAP ════════════════ -->
+<section id="map-section" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">Find Us</span>
+    <h2>Our Branches</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="map-grid">
+    <div class="map-container reveal">
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <h3>Wildshakes Cafe Locations</h3>
+        <p>8 branches across the Philippines</p>
+        <p style="margin-top:12px;font-size:0.8rem;color:var(--text-muted);">(Interactive map coming soon)</p>
+      </div>
+    </div>
+    <div class="branch-list reveal reveal-delay-2">
+      <h3>📍 All Branches</h3>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — BGC</strong><span>Bonifacio Global City, Taguig</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Cebu</strong><span>Cebu City, Cebu</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Davao</strong><span>Davao City, Davao del Sur</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Makati</strong><span>Ayala Ave, Makati City</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — QC</strong><span>Quezon City, Metro Manila</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Iloilo</strong><span>Iloilo City, Iloilo</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Cagayan</strong><span>Cagayan de Oro, Misamis Oriental</span></div></div>
+      <div class="branch-item"><div class="branch-dot"></div><div class="branch-item-text"><strong>Wildshakes — Pampanga</strong><span>Angeles City, Pampanga</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" alt="Wildshakes Cafe Logo" />
+      <p>Where premium craftsmanship meets wild, vibrant energy. Every visit is an experience worth repeating.</p>
+      <div class="footer-social" style="margin-top:20px;">
+        <a href="https://www.facebook.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/wildshakescafe" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://www.tiktok.com/@wildshakescafe" target="_blank" rel="noopener" aria-label="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.88a8.17 8.17 0 004.78 1.52V7c-.01 0-1.33-.11-2.01-.31z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="menu.html">Our Menu</a></li><li><a href="experience.html">The Wild Experience</a></li><li><a href="contact.html">Contact / Franchise</a></li></ul></div>
+    <div class="footer-col"><h4>Menu</h4><ul><li><a href="menu.html#shakes">Signature Shakes</a></li><li><a href="menu.html#coffee">Premium Coffee</a></li><li><a href="menu.html#food">Gourmet Food</a></li></ul></div>
+    <div class="footer-col"><h4>Hours</h4><ul class="hours-list"><li><span>Mon – Thu</span><span>10AM – 10PM</span></li><li><span>Fri – Sat</span><span>10AM – 12AM</span></li><li><span>Sunday</span><span>11AM – 10PM</span></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wildshakes Cafe. All rights reserved.</span>
+    <span>Crafted with ♥ in the Philippines</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('page-loader').classList.add('hidden');
+      document.getElementById('page-hero').classList.add('loaded');
+    }, 900);
+  });
+
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+  const toggle = document.getElementById('nav-toggle');
+  const drawer = document.getElementById('nav-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+  toggle.addEventListener('click', () => { toggle.classList.toggle('open'); drawer.classList.toggle('open'); overlay.classList.toggle('open'); });
+  overlay.addEventListener('click', () => { toggle.classList.remove('open'); drawer.classList.remove('open'); overlay.classList.remove('open'); });
+
+  // Scroll reveal
+  const ro = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // Counter animation
+  const counters = document.querySelectorAll('[data-count]');
+  const co = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.count;
+      let cur = 0;
+      const step = target / (1800 / 16);
+      const t = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = Math.floor(cur) + (el.closest('#stats-band') && el.dataset.count == '98' ? '%+' : '+');
+        if (cur >= target) clearInterval(t);
+      }, 16);
+      co.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => co.observe(c));
+
+  // Form submit animation
+  const form = document.getElementById('franchise-form');
+  const btn = document.getElementById('submit-btn');
+  const success = document.getElementById('form-success');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    btn.textContent = 'Sending…';
+    btn.classList.add('sending');
+    setTimeout(() => {
+      btn.textContent = '✓ Sent!';
+      success.style.display = 'block';
+      form.reset();
+      setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.classList.remove('sending'); success.style.display = 'none'; }, 5000);
+    }, 1800);
+  });
+
+  // Cursor glow
+  const glow = document.getElementById('cursor-glow');
+  if (window.innerWidth > 768) { document.addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }); }
+  else { glow.style.display = 'none'; }
+</script>
+<script src="app.js" defer></script>
+</body>
+</html>
