@@ -218,8 +218,10 @@
         flex-direction: column;
         align-items: flex-end;
         gap: 10px;
+        pointer-events: none;
       }
       #wa-link {
+        pointer-events: auto;
         display: flex;
         align-items: center;
         justify-content: center;

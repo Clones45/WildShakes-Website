@@ -3,26 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Franchise &amp; Contact — Wildshakes Cafe</title>
-  <meta name="description" content="Join the Wildshakes family. Learn about our franchise opportunity and get in touch. Growing brand, low investment, full business support." />
-  <meta name="keywords" content="wildshakes franchise, cafe franchise Philippines, low investment franchise, wildshakes contact" />
+  <title>Franchise With Us — Wildshakes Cafe</title>
+  <meta name="description" content="Franchise with Wildshakes Cafe. Packages from ₱180,000 with full training, marketing, and ongoing support. See investment tiers, FAQs, and apply today." />
+  <meta name="keywords" content="wildshakes franchise, cafe franchise Philippines, low investment franchise, wildshakes franchise cost, franchise investment Philippines, cafe franchise fee, wildshakes contact" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://wildshakes-cafe.vercel.app/contact" />
   <link rel="icon" type="image/jpeg" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
   <link rel="apple-touch-icon" href="assets/69bfaf69725ff5.72162208_WildshakesLogoforIPO.jpeg" />
   <meta name="theme-color" content="#2D5A27" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Franchise &amp; Contact — Wildshakes Cafe" />
-  <meta property="og:description" content="Be part of the fastest-growing premium café brand in the Philippines. Low investment, full support." />
+  <meta property="og:title" content="Franchise With Us — Wildshakes Cafe" />
+  <meta property="og:description" content="Franchise packages from ₱180,000. Full training, marketing support, and a proven business model — join 8 thriving Wildshakes branches and counting." />
   <meta property="og:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
   <meta property="og:url" content="https://wildshakes-cafe.vercel.app/contact" />
   <meta property="og:site_name" content="Wildshakes Cafe" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Franchise &amp; Contact — Wildshakes Cafe" />
+  <meta name="twitter:title" content="Franchise With Us — Wildshakes Cafe" />
   <meta name="twitter:image" content="https://wildshakes-cafe.vercel.app/assets/Wild/AC207494.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does it cost to open a Wildshakes franchise?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Total investment ranges from ₱180,000 for our Kiosk package up to ₱1,200,000 for a Flagship branch, depending on size, location, and build-out scope. See our Investment Options above for a full breakdown, or download our Franchise Info Pack for detailed figures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the ongoing fees after I open?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Franchisees pay a 5% monthly royalty fee and a 2% marketing fund contribution, both based on gross monthly sales. These fees fund continuous menu R&D, national marketing campaigns, and ongoing operational support — there are no hidden charges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to open after I apply?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most franchisees go from signed agreement to grand opening in 10–12 weeks, depending on construction timelines and site readiness. Our team manages the process closely to keep things on schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I get exclusive territory rights?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Each franchise location is granted a protected radius based on local population density and existing branch coverage, so you won't be competing with another Wildshakes branch for the same customers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What kind of training and support is included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every franchisee and their core staff complete hands-on training at an existing Wildshakes branch before opening — covering drink and food preparation, POS systems, inventory management, and customer service standards. After launch, our regional support team stays in touch for ongoing coaching, and we're always a call away."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need prior food and beverage experience?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No prior café experience is required. Many of our most successful franchisees came from completely different industries. What matters most is your commitment to the brand standards and willingness to be hands-on, especially in your first few months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What locations are you currently prioritizing for expansion?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We're actively looking for franchise partners in Mindanao, Visayas, and Metro Manila, with priority given to high-foot-traffic commercial areas, university belts, and mixed-use developments. Tell us your target city in the form below and we'll let you know what's available."
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     /* ── Why Franchise ── */
     #why-franchise {
@@ -204,6 +268,47 @@
       margin-top: 16px;
     }
 
+    /* ── Investment Tiers ── */
+    #investment-tiers { background: var(--green-pale); }
+    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 12px; align-items: stretch; }
+    .tier-card { background: var(--white); border-radius: var(--radius-md); box-shadow: var(--shadow-card); padding: 36px 32px; display: flex; flex-direction: column; transition: transform var(--transition), box-shadow var(--transition); position: relative; }
+    .tier-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .tier-card.featured { border: 2px solid var(--gold); transform: scale(1.03); }
+    .tier-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+    .tier-card .badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); }
+    .tier-card-name { font-size: 1.3rem; margin-bottom: 4px; }
+    .tier-card-audience { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px; }
+    .tier-card-price { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--green-dark); }
+    .tier-card-price-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 24px; display: block; margin-top: 2px; }
+    .tier-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 8px 0 24px; flex-grow: 1; }
+    .tier-list li { font-size: 0.88rem; color: var(--text-body); line-height: 1.5; padding-left: 26px; position: relative; }
+    .tier-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green-mid); font-weight: 700; }
+    .tier-card-roi { font-size: 0.82rem; color: var(--green-dark); font-weight: 600; border-top: 1px solid var(--cream-dark); padding-top: 16px; margin-top: auto; }
+    .tier-disclaimer { text-align: center; font-size: 0.78rem; color: var(--text-muted); max-width: 640px; margin: 32px auto 0; line-height: 1.6; }
+    .tier-royalty-note { text-align: center; font-size: 0.9rem; color: var(--text-dark); margin-top: 16px; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .tier-cta-wrap { text-align: center; margin-top: 40px; }
+
+    /* ── Franchise Process ── */
+    #franchise-process { background: var(--cream); }
+    .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 24px; position: relative; }
+    .process-grid::before { content: ''; position: absolute; top: 34px; left: 10%; right: 10%; height: 2px; background: var(--cream-dark); z-index: 0; }
+    .process-step { position: relative; z-index: 1; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .process-step-num { width: 68px; height: 68px; border-radius: 50%; background: var(--white); border: 2px solid var(--green-mid); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--green-dark); margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+    .process-step-title { font-size: 1rem; margin-bottom: 8px; }
+    .process-step-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .process-step-tag { display: inline-block; margin-top: 10px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+    .process-summary { text-align: center; margin-top: 48px; font-size: 1rem; color: var(--text-dark); }
+    .process-summary strong { color: var(--green-dark); }
+
+    /* ── Info Pack CTA ── */
+    #info-pack-cta { background: var(--green-dark); padding: 56px clamp(24px,6vw,100px); display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .info-pack-text .label-cap { color: var(--gold-light); margin-bottom: 8px; display: block; }
+    .info-pack-text h3 { color: var(--white); font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 8px; }
+    .info-pack-text p { color: rgba(255,255,255,0.7); max-width: 480px; }
+
+    /* ── Franchise FAQ ── */
+    #franchise-faq { background: var(--cream); }
+
     /* ── Photo strip ── */
     #photo-strip {
       display: grid;
@@ -294,6 +399,11 @@
       #stats-band { grid-template-columns: repeat(2, 1fr); }
       .map-grid { grid-template-columns: 1fr; }
       #photo-strip { grid-template-columns: repeat(2, 1fr); height: 240px; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .tier-card.featured { transform: scale(1); order: -1; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid::before { display: none; }
+      #info-pack-cta { flex-direction: column; text-align: center; }
     }
     @media (max-width: 640px) {
       .franchise-grid { grid-template-columns: 1fr; }
@@ -301,6 +411,7 @@
       .form-card { padding: 32px 24px; }
       #stats-band { grid-template-columns: repeat(2, 1fr); gap: 32px; }
       #photo-strip { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -340,9 +451,9 @@
 <div class="page-hero" id="page-hero">
   <img src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Franchise hero" loading="eager" />
   <div class="page-hero-content">
-    <span class="label-cap" style="color:var(--gold-light);">Join the Family</span>
-    <h1>Franchise &amp; Contact</h1>
-    <p>Be part of the fastest-growing premium café brand in the Philippines.</p>
+    <span class="label-cap" style="color:var(--gold-light);">Own Your Future</span>
+    <h1>Franchise With Wildshakes</h1>
+    <p>Join 8 thriving branches and counting. Bring premium café culture — and a proven business model — to your city.</p>
   </div>
 </div>
 
@@ -352,7 +463,7 @@
     <span class="label-cap">The Opportunity</span>
     <h2>Why Franchise With Us?</h2>
     <div class="divider"></div>
-    <p>Wild Shakes is more than a café — it's a thriving business ecosystem built for franchisee success.</p>
+    <p>Wild Shakes is more than a café — it's a business system built for your success, with the numbers, training, and support to back it up.</p>
   </div>
   <div class="franchise-grid">
     <div class="franchise-card reveal reveal-delay-1">
@@ -402,6 +513,111 @@
   </div>
 </div>
 
+<!-- ════════════════ INVESTMENT TIERS ════════════════ -->
+<section id="investment-tiers" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">Investment Options</span>
+    <h2>Find Your Fit</h2>
+    <div class="divider"></div>
+    <p>Three franchise packages designed to match different market sizes, budgets, and ambitions — all backed by the same proven Wildshakes system.</p>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card reveal reveal-delay-1">
+      <div class="tier-card-name">Kiosk / Cart</div>
+      <div class="tier-card-audience">Ideal for: Malls, food courts, high-foot-traffic kiosks</div>
+      <div class="tier-card-price">₱180,000 – ₱250,000</div>
+      <span class="tier-card-price-label">Total investment, all-inclusive</span>
+      <ul class="tier-list">
+        <li>6–8 sqm kiosk build-out &amp; branded signage</li>
+        <li>Full equipment set (blender station, chiller, POS)</li>
+        <li>Initial inventory package (2 weeks)</li>
+        <li>7-day onsite training for up to 3 staff</li>
+        <li>Grand opening marketing kit</li>
+      </ul>
+      <div class="tier-card-roi">Target payback: 12–18 months*</div>
+    </div>
+    <div class="tier-card featured reveal reveal-delay-2">
+      <span class="badge">Most Popular</span>
+      <div class="tier-card-name">Standard Café</div>
+      <div class="tier-card-audience">Ideal for: Standalone storefronts, 30–60 sqm</div>
+      <div class="tier-card-price">₱450,000 – ₱650,000</div>
+      <span class="tier-card-price-label">Total investment, all-inclusive</span>
+      <ul class="tier-list">
+        <li>Full café build-out with signature Wildshakes interior design</li>
+        <li>Complete kitchen &amp; beverage equipment package</li>
+        <li>Initial inventory package (3 weeks)</li>
+        <li>14-day onsite training for up to 6 staff</li>
+        <li>Pre-launch &amp; grand opening marketing campaign</li>
+        <li>Point-of-sale + inventory management system</li>
+      </ul>
+      <div class="tier-card-roi">Target payback: 14–20 months*</div>
+    </div>
+    <div class="tier-card reveal reveal-delay-3">
+      <div class="tier-card-name">Flagship Branch</div>
+      <div class="tier-card-audience">Ideal for: High-traffic corners, 80+ sqm, dine-in destinations</div>
+      <div class="tier-card-price">₱850,000 – ₱1,200,000</div>
+      <span class="tier-card-price-label">Total investment, all-inclusive</span>
+      <ul class="tier-list">
+        <li>Premium full-scale build-out with signature Wild interior + outdoor seating</li>
+        <li>Full commercial kitchen &amp; extended beverage line equipment</li>
+        <li>Initial inventory package (4 weeks)</li>
+        <li>21-day onsite training for full team + ongoing regional support visits</li>
+        <li>City-wide launch marketing campaign</li>
+        <li>Priority territory allocation</li>
+      </ul>
+      <div class="tier-card-roi">Target payback: 16–24 months*</div>
+    </div>
+  </div>
+  <p class="tier-disclaimer">*Figures are estimates based on current franchisee performance and may vary by location, size, and local market conditions. Final investment breakdown provided upon application.</p>
+  <p class="tier-royalty-note">Ongoing fees: 5% monthly royalty + 2% marketing fund — covers continuous recipe R&amp;D, national marketing, and franchisee support.</p>
+  <div class="tier-cta-wrap">
+    <a href="#contact-section" class="btn btn-green">Get the Full Franchise Packet →</a>
+  </div>
+</section>
+
+<!-- ════════════════ FRANCHISE PROCESS ════════════════ -->
+<section id="franchise-process" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">The Journey</span>
+    <h2>How to Become a Franchisee</h2>
+    <div class="divider"></div>
+    <p>From first inquiry to opening day — here's exactly what to expect.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal reveal-delay-1">
+      <div class="process-step-num">01</div>
+      <h3 class="process-step-title">Submit Your Inquiry</h3>
+      <p class="process-step-desc">Fill out the franchise form below or call our team directly. Tell us about your target location and investment range.</p>
+      <span class="process-step-tag">Day 1</span>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="process-step-num">02</div>
+      <h3 class="process-step-title">Discovery Call &amp; Application</h3>
+      <p class="process-step-desc">We'll walk you through the business model, answer your questions, and send over the full Franchise Information Pack and application form.</p>
+      <span class="process-step-tag">Week 1</span>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="process-step-num">03</div>
+      <h3 class="process-step-title">Site Evaluation &amp; Approval</h3>
+      <p class="process-step-desc">Our team evaluates your proposed location for foot traffic and market fit, finalizes your package tier, and issues a Letter of Intent.</p>
+      <span class="process-step-tag">Weeks 2–4</span>
+    </div>
+    <div class="process-step reveal reveal-delay-4">
+      <div class="process-step-num">04</div>
+      <h3 class="process-step-title">Build-Out &amp; Training</h3>
+      <p class="process-step-desc">Store construction begins under our design team's guidance while you and your staff complete hands-on training at an existing Wildshakes branch.</p>
+      <span class="process-step-tag">Weeks 5–10</span>
+    </div>
+    <div class="process-step reveal reveal-delay-5">
+      <div class="process-step-num">05</div>
+      <h3 class="process-step-title">Grand Opening</h3>
+      <p class="process-step-desc">We're on-site for your launch week, backed by a marketing push to bring in day-one crowds. Ongoing support continues for the life of your franchise.</p>
+      <span class="process-step-tag">Week 11+</span>
+    </div>
+  </div>
+  <p class="process-summary">Average time from inquiry to grand opening: <strong>10–12 weeks</strong>.</p>
+</section>
+
 <!-- ════════════════ PHOTO STRIP ════════════════ -->
 <div id="photo-strip">
   <img src="assets/Contact Photos/67c7ffdc4e94f_ComprehensiveTraining1500x2000px-2.jpg" alt="Franchise support" loading="lazy" />
@@ -409,6 +625,16 @@
   <img src="assets/Contact Photos/67c803757f8c8_ComprehensiveTraining1500x2000px750x1000px-2.jpg" alt="Business support" loading="lazy" />
   <img src="assets/Contact Photos/67c8386233cc0_LOWINVESTMENTHIFHRETURNS-5.jpg" alt="Investment returns" loading="lazy" />
 </div>
+
+<!-- ════════════════ INFO PACK CTA ════════════════ -->
+<section id="info-pack-cta">
+  <div class="info-pack-text reveal">
+    <span class="label-cap">Free Download</span>
+    <h3>Get the Complete Franchise Information Pack</h3>
+    <p>Investment breakdowns, projected returns, training details, and everything else you need to make your decision — in one PDF.</p>
+  </div>
+  <a href="assets/CompanyProfile.pdf" download class="btn btn-primary reveal reveal-delay-1" id="info-pack-link">Download Info Pack (PDF) →</a>
+</section>
 
 <!-- ════════════════ CONTACT + FORM ════════════════ -->
 <section id="contact-section" class="section">
@@ -458,8 +684,8 @@
 
     <!-- Form -->
     <div class="form-card reveal reveal-delay-2">
-      <h3>Send Us a Message</h3>
-      <p>Fill in your details and our franchise team will reach out to you shortly.</p>
+      <h3>Start Your Franchise Application</h3>
+      <p>Tell us about your goals — our franchise development team will follow up with a personalized package recommendation within 24–48 hours.</p>
       <form id="franchise-form" novalidate>
         <div class="form-fields">
           <div class="form-row">
@@ -485,6 +711,27 @@
             <input type="text" id="location" name="location" placeholder="e.g. Cebu City, Davao, BGC…" />
           </div>
           <div class="form-group">
+            <label for="budget">Investment Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select your investment budget…</option>
+              <option value="under-250k">Under ₱250,000 (Kiosk)</option>
+              <option value="250k-650k">₱250,000 – ₱650,000 (Standard Café)</option>
+              <option value="650k-1.2m">₱650,000 – ₱1,200,000 (Flagship)</option>
+              <option value="above-1.2m">Above ₱1,200,000</option>
+              <option value="not-sure">Not sure yet — send me info</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="timeline">Preferred Timeline to Open</label>
+            <select id="timeline" name="timeline">
+              <option value="">When are you looking to open?</option>
+              <option value="asap">As soon as possible</option>
+              <option value="3-6mo">3–6 months</option>
+              <option value="6-12mo">6–12 months</option>
+              <option value="exploring">Just exploring for now</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="inquiry">Type of Inquiry</label>
             <select id="inquiry" name="inquiry">
               <option value="">Select inquiry type…</option>
@@ -499,9 +746,84 @@
             <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about yourself and your goals…"></textarea>
           </div>
           <button type="submit" class="form-submit" id="submit-btn">Send Inquiry →</button>
-          <div id="form-success">✅ Thank you! We've received your inquiry and will reach out within 24–48 hours.</div>
+          <div id="form-success">🎉 Application received! Our franchise development team will review your details and reach out within 24–48 hours with next steps — including your personalized package recommendation.</div>
         </div>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FRANCHISE FAQ ════════════════ -->
+<section id="franchise-faq" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">Common Questions</span>
+    <h2>Franchise FAQ</h2>
+    <div class="divider"></div>
+    <p>Everything you need to know before you apply. Don't see your question? Reach out directly — we're happy to help.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        <span>How much does it cost to open a Wildshakes franchise?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Total investment ranges from ₱180,000 for our Kiosk package up to ₱1,200,000 for a Flagship branch, depending on size, location, and build-out scope. See our Investment Options above for a full breakdown, or download our Franchise Info Pack for detailed figures.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1">
+      <button class="faq-question" aria-expanded="false">
+        <span>What are the ongoing fees after I open?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Franchisees pay a 5% monthly royalty fee and a 2% marketing fund contribution, both based on gross monthly sales. These fees fund continuous menu R&amp;D, national marketing campaigns, and ongoing operational support — there are no hidden charges.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-2">
+      <button class="faq-question" aria-expanded="false">
+        <span>How long does it take to open after I apply?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Most franchisees go from signed agreement to grand opening in 10–12 weeks, depending on construction timelines and site readiness. Our team manages the process closely to keep things on schedule.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-2">
+      <button class="faq-question" aria-expanded="false">
+        <span>Do I get exclusive territory rights?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Each franchise location is granted a protected radius based on local population density and existing branch coverage, so you won't be competing with another Wildshakes branch for the same customers.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-3">
+      <button class="faq-question" aria-expanded="false">
+        <span>What kind of training and support is included?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Every franchisee and their core staff complete hands-on training at an existing Wildshakes branch before opening — covering drink and food preparation, POS systems, inventory management, and customer service standards. After launch, our regional support team stays in touch for ongoing coaching, and we're always a call away.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-3">
+      <button class="faq-question" aria-expanded="false">
+        <span>Do I need prior food and beverage experience?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>No prior café experience is required. Many of our most successful franchisees came from completely different industries. What matters most is your commitment to the brand standards and willingness to be hands-on, especially in your first few months.</p>
+      </div>
+    </div>
+    <div class="faq-item reveal reveal-delay-4">
+      <button class="faq-question" aria-expanded="false">
+        <span>What locations are you currently prioritizing for expansion?</span>
+        <span class="faq-question-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We're actively looking for franchise partners in Mindanao, Visayas, and Metro Manila, with priority given to high-foot-traffic commercial areas, university belts, and mixed-use developments. Tell us your target city in the form below and we'll let you know what's available.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -597,12 +919,44 @@
   }, { threshold: 0.5 });
   counters.forEach(c => co.observe(c));
 
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(faqBtn => {
+    faqBtn.addEventListener('click', () => {
+      const item = faqBtn.closest('.faq-item');
+      const isOpen = item.classList.toggle('open');
+      faqBtn.setAttribute('aria-expanded', isOpen);
+    });
+  });
+
+  // Info pack download toast
+  const infoPackLink = document.getElementById('info-pack-link');
+  if (infoPackLink) {
+    infoPackLink.addEventListener('click', () => {
+      if (window.wsToast) window.wsToast('Your download has started!', 'info');
+    });
+  }
+
   // Form submit animation
   const form = document.getElementById('franchise-form');
   const btn = document.getElementById('submit-btn');
   const success = document.getElementById('form-success');
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   form.addEventListener('submit', e => {
     e.preventDefault();
+
+    const fnameEl = document.getElementById('fname');
+    const lnameEl = document.getElementById('lname');
+    const emailEl = document.getElementById('email');
+    const invalidFields = [fnameEl, lnameEl, emailEl].filter(el => !el.value.trim());
+    if (!emailEl.value.trim() || !emailPattern.test(emailEl.value.trim())) invalidFields.push(emailEl);
+
+    if (invalidFields.length) {
+      if (window.wsToast) window.wsToast('Please fill in your name and a valid email address.', 'error');
+      invalidFields.forEach(el => el.classList.add('field-error'));
+      setTimeout(() => invalidFields.forEach(el => el.classList.remove('field-error')), 3000);
+      return;
+    }
+
     btn.textContent = 'Sending…';
     btn.classList.add('sending');
     setTimeout(() => {
