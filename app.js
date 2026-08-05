@@ -172,7 +172,144 @@
   }
 
   /* ══════════════════════════════════════════
-     9. INJECT GLOBAL STYLES
+     9. NEAREST STORE LOCATOR
+     Uses the browser Geolocation API (free, built-in) to find the
+     visitor's coordinates, falling back to a free keyless IP lookup
+     (geojs.io) if permission is denied or unavailable.
+  ══════════════════════════════════════════ */
+  const STORES = [
+    {
+      city: 'General Santos',
+      address: 'Pendatun Avenue, Brgy. Dadiangas North, General Santos City',
+      phone: '0945 314 7953',
+      landline: '(083) 338-0204',
+      lat: 6.1164, lng: 125.1716
+    },
+    {
+      city: 'Digos',
+      address: '1st Crumb Street, Zone 1, Digos City',
+      phone: '0927 629 0200',
+      landline: null,
+      lat: 6.7495, lng: 125.3572
+    },
+    {
+      city: 'Davao',
+      address: 'Unit 4, Diamond Piazza, Lapu-Lapu St, Agdao, Davao City',
+      phone: '0995 096 0446',
+      landline: '(082) 308-2725',
+      lat: 7.0731, lng: 125.6128
+    },
+    {
+      city: 'Koronadal',
+      address: 'J. Alba St, Koronadal City',
+      phone: '0915 623 9655',
+      landline: null,
+      lat: 6.5029, lng: 124.8467
+    }
+  ];
+
+  function toTelHref(num) {
+    const digits = num.replace(/\D/g, '');
+    return digits.startsWith('0') ? '+63' + digits.slice(1) : '+' + digits;
+  }
+
+  function haversineKm(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLon / 2) ** 2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function findNearestStore(lat, lng) {
+    return STORES.reduce((closest, store) => {
+      const d = haversineKm(lat, lng, store.lat, store.lng);
+      return (!closest || d < closest.d) ? { store, d } : closest;
+    }, null).store;
+  }
+
+  function storePhoneLines(store) {
+    let html = `<p class="store-phone"><a href="tel:${toTelHref(store.phone)}">${store.phone}</a></p>`;
+    if (store.landline) {
+      html += `<p class="store-phone"><a href="tel:${toTelHref(store.landline)}">${store.landline}</a></p>`;
+    }
+    return html;
+  }
+
+  function renderNearestStore(container, store) {
+    container.innerHTML = `
+      <p class="store-name">${store.city} Store</p>
+      <p class="store-address">${store.address}</p>
+      ${storePhoneLines(store)}
+    `;
+  }
+
+  function renderAllStores(list) {
+    list.innerHTML = STORES.map(s => `
+      <li>
+        <span class="store-name">${s.city} Store</span>
+        <span class="store-address">${s.address}</span>
+        ${storePhoneLines(s)}
+      </li>
+    `).join('');
+  }
+
+  function initStoreLocator() {
+    const nearestEl = document.getElementById('nearest-store');
+    if (!nearestEl) return;
+
+    const toggleBtn = document.getElementById('toggle-all-stores');
+    const allList = document.getElementById('all-stores-list');
+    if (allList) renderAllStores(allList);
+    if (toggleBtn && allList) {
+      toggleBtn.addEventListener('click', () => {
+        const willShow = allList.hasAttribute('hidden');
+        allList.toggleAttribute('hidden', !willShow);
+        toggleBtn.textContent = willShow ? 'Hide all locations' : 'See all locations';
+      });
+    }
+
+    const cachedIndex = sessionStorage.getItem('ws_nearest_store');
+    if (cachedIndex !== null && STORES[+cachedIndex]) {
+      renderNearestStore(nearestEl, STORES[+cachedIndex]);
+      return;
+    }
+
+    function useCoords(lat, lng) {
+      const store = findNearestStore(lat, lng);
+      sessionStorage.setItem('ws_nearest_store', String(STORES.indexOf(store)));
+      renderNearestStore(nearestEl, store);
+    }
+
+    function showDefault() {
+      renderNearestStore(nearestEl, STORES[0]);
+    }
+
+    function tryIpFallback() {
+      fetch('https://get.geojs.io/v1/ip/geo.json')
+        .then(r => r.json())
+        .then(d => {
+          const lat = parseFloat(d.latitude), lng = parseFloat(d.longitude);
+          if (!isNaN(lat) && !isNaN(lng)) useCoords(lat, lng);
+          else showDefault();
+        })
+        .catch(showDefault);
+    }
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        pos => useCoords(pos.coords.latitude, pos.coords.longitude),
+        tryIpFallback,
+        { timeout: 6000, maximumAge: 600000 }
+      );
+    } else {
+      tryIpFallback();
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     10. INJECT GLOBAL STYLES
   ══════════════════════════════════════════ */
   function injectStyles() {
     const style = document.createElement('style');
@@ -346,7 +483,7 @@
   }
 
   /* ══════════════════════════════════════════
-     10. INIT ALL
+     11. INIT ALL
   ══════════════════════════════════════════ */
   function init() {
     injectStyles();
@@ -356,6 +493,7 @@
     initImageFallbacks();
     initSmoothAnchors();
     addFetchPriority();
+    initStoreLocator();
   }
 
   if (document.readyState === 'loading') {
