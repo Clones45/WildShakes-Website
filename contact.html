@@ -287,6 +287,25 @@
     .info-pack-text p { color: rgba(255,255,255,0.7); max-width: 480px; }
     .info-pack-actions { display: flex; flex-wrap: wrap; gap: 16px; }
 
+    /* ── Franchise Funnel (kit slides) ── */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    #franchise-funnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #0f1f0d;
+      padding-top: var(--nav-height);
+    }
+    .funnel-slide {
+      display: block;
+      width: 100%;
+      max-width: 1500px;
+      height: auto;
+    }
+
     /* ── Franchise FAQ ── */
     #franchise-faq { background: var(--cream); }
 
@@ -429,122 +448,36 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- Page Hero -->
-<div class="page-hero" id="page-hero">
-  <img src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Franchise hero" loading="eager" />
-  <div class="page-hero-content">
-    <span class="label-cap" style="color:var(--gold-light);">Own Your Future</span>
-    <h1>Franchise With Wildshakes</h1>
-    <p>Join 4 thriving branches and counting. Bring premium café culture — and a proven business model — to your city.</p>
-  </div>
-</div>
-
-<!-- ════════════════ WHY FRANCHISE ════════════════ -->
-<section id="why-franchise" class="section">
-  <div class="section-header reveal">
-    <span class="label-cap">The Opportunity</span>
-    <h2>Why Franchise With Us?</h2>
-    <div class="divider"></div>
-    <p>Wild Shakes is more than a café — it's a business system built for your success, with the numbers, training, and support to back it up.</p>
-  </div>
-  <div class="franchise-grid">
-    <div class="franchise-card reveal reveal-delay-1">
-      <img class="franchise-card-img" src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Growing Brand" loading="lazy" />
-      <div class="franchise-card-body">
-        <div class="franchise-card-icon">🌱</div>
-        <h3>Growing Brand</h3>
-        <p>Wild Shakes is a fast-expanding brand with 4 thriving branches and counting! Our strong customer demand, innovative menu, and proven business model make us a go-to choice for aspiring entrepreneurs. As we continue to grow, we provide excellent opportunities for partners to be part of our success story!</p>
-      </div>
-    </div>
-    <div class="franchise-card reveal reveal-delay-2">
-      <img class="franchise-card-img" src="assets/Contact Photos/67c7fed87a90e_LOWINVESTMENTHIFHRETURNS-4.jpg" alt="Low Investment" loading="lazy" />
-      <div class="franchise-card-body">
-        <div class="franchise-card-icon">💰</div>
-        <h3>Low Investment</h3>
-        <p>Wild Shakes offers an affordable startup cost with strong profit potential. With our established brand presence, efficient operations, and a product lineup that customers consistently enjoy, our business model is designed to support franchisees in building a profitable venture and sustainable growth over time. Get started with confidence!</p>
-      </div>
-    </div>
-    <div class="franchise-card reveal reveal-delay-3">
-      <img class="franchise-card-img" src="assets/Contact Photos/67c7fd3f6908f_ComprehensiveTraining1500x2000px.jpg" alt="Full Business Support" loading="lazy" />
-      <div class="franchise-card-body">
-        <div class="franchise-card-icon">🤝</div>
-        <h3>Full Business Support</h3>
-        <p>At Wild Shakes, we set our franchisees up for success with comprehensive business support from day one. Our team provides hands-on guidance in training, marketing, store setup, and daily operations, ensuring a smooth and profitable journey. With our proven system and ongoing assistance, you can confidently run your own Wild Shakes branch!</p>
-      </div>
-    </div>
-  </div>
+<!-- ════════════════ FRANCHISE FUNNEL (Kit Slides) ════════════════ -->
+<section id="franchise-funnel" aria-label="Wild Shakes Franchise Kit">
+  <h1 class="sr-only">Franchise With Wild Shakes — Own a Wild Shakes Café</h1>
+  <img class="funnel-slide" src="assets/franchise-kit/01.jpg" alt="Wild Shakes — Unleash the flavor, own the craze" loading="eager" fetchpriority="high" />
+  <img class="funnel-slide" src="assets/franchise-kit/02.jpg" alt="About Wild Shakes — premium fruit shakes and milkshakes" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/03.jpg" alt="Our history — the spark of an idea, 2021" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/04.jpg" alt="Our history — the Wild Shakes team" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/05.jpg" alt="Vision and mission" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/06.jpg" alt="Core values" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/07.jpg" alt="Wild Shakes Gensan branch" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/08.jpg" alt="Wild Shakes SM Gensan branch" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/09.jpg" alt="Wild Shakes Digos branch" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/10.jpg" alt="Wild Shakes Davao branch" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/11.jpg" alt="Wild Shakes Lanang branch" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/12.jpg" alt="Our wild gallery" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/13.jpg" alt="Our savory pastas" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/14.jpg" alt="Crispy, saucy chicken wings" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/15.jpg" alt="Slice, snap and share — pizza" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/16.jpg" alt="And so much more — favorites and snacks" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/17.jpg" alt="Franchise with us — why franchise with Wild Shakes" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/18.jpg" alt="Unit franchise inclusions and terms" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/19.jpg" alt="Area franchise inclusions and terms" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/20.jpg" alt="Unit franchise details" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/21.jpg" alt="Area franchise and cart details" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/22.jpg" alt="Steps to own a franchise, part 1" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/23.jpg" alt="Steps to own a franchise, part 2" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/24.jpg" alt="Your grand opening" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/25.jpg" alt="Get in touch — contact details" loading="lazy" />
+  <img class="funnel-slide" src="assets/franchise-kit/26.jpg" alt="Thank you" loading="lazy" />
 </section>
-
-<!-- ════════════════ STATS ════════════════ -->
-<div id="stats-band">
-  <div class="stats-band-item reveal">
-    <div class="stats-band-num" data-count="4">0</div>
-    <div class="stats-band-label">Active Branches</div>
-  </div>
-  <div class="stats-band-item reveal reveal-delay-1">
-    <div class="stats-band-num" data-count="5">0</div>
-    <div class="stats-band-label">Years in Business</div>
-  </div>
-  <div class="stats-band-item reveal reveal-delay-2">
-    <div class="stats-band-num" data-count="40">0</div>
-    <div class="stats-band-label">Menu Items</div>
-  </div>
-  <div class="stats-band-item reveal reveal-delay-3">
-    <div class="stats-band-num" data-count="98">0</div>
-    <div class="stats-band-label">% Franchisee Satisfaction</div>
-  </div>
-</div>
-
-<!-- ════════════════ FRANCHISE PROCESS ════════════════ -->
-<section id="franchise-process" class="section">
-  <div class="section-header reveal">
-    <span class="label-cap">The Journey</span>
-    <h2>How to Become a Franchisee</h2>
-    <div class="divider"></div>
-    <p>From first inquiry to opening day — here's exactly what to expect.</p>
-  </div>
-  <div class="process-grid">
-    <div class="process-step reveal reveal-delay-1">
-      <div class="process-step-num">01</div>
-      <h3 class="process-step-title">Submit Your Inquiry</h3>
-      <p class="process-step-desc">Fill out the franchise form below or call our team directly. Tell us about your target location and investment range.</p>
-      <span class="process-step-tag">Day 1</span>
-    </div>
-    <div class="process-step reveal reveal-delay-2">
-      <div class="process-step-num">02</div>
-      <h3 class="process-step-title">Discovery Call &amp; Application</h3>
-      <p class="process-step-desc">We'll walk you through the business model, answer your questions, and send over the full Franchise Information Pack and application form.</p>
-      <span class="process-step-tag">Week 1</span>
-    </div>
-    <div class="process-step reveal reveal-delay-3">
-      <div class="process-step-num">03</div>
-      <h3 class="process-step-title">Site Evaluation &amp; Approval</h3>
-      <p class="process-step-desc">Our team evaluates your proposed location for foot traffic and market fit, finalizes your package tier, and issues a Letter of Intent.</p>
-      <span class="process-step-tag">Weeks 2–4</span>
-    </div>
-    <div class="process-step reveal reveal-delay-4">
-      <div class="process-step-num">04</div>
-      <h3 class="process-step-title">Build-Out &amp; Training</h3>
-      <p class="process-step-desc">Store construction begins under our design team's guidance while you and your staff complete hands-on training at an existing Wildshakes branch.</p>
-      <span class="process-step-tag">Weeks 5–10</span>
-    </div>
-    <div class="process-step reveal reveal-delay-5">
-      <div class="process-step-num">05</div>
-      <h3 class="process-step-title">Grand Opening</h3>
-      <p class="process-step-desc">We're on-site for your launch week, backed by a marketing push to bring in day-one crowds. Ongoing support continues for the life of your franchise.</p>
-      <span class="process-step-tag">Week 11+</span>
-    </div>
-  </div>
-  <p class="process-summary">Average time from inquiry to grand opening: <strong>10–12 weeks</strong>.</p>
-</section>
-
-<!-- ════════════════ PHOTO STRIP ════════════════ -->
-<div id="photo-strip">
-  <img src="assets/Contact Photos/67c7ffdc4e94f_ComprehensiveTraining1500x2000px-2.jpg" alt="Franchise support" loading="lazy" />
-  <img src="assets/Contact Photos/67c7ffe2da8fc_ComprehensiveTraining1500x2000px-3.jpg" alt="Training" loading="lazy" />
-  <img src="assets/Contact Photos/67c803757f8c8_ComprehensiveTraining1500x2000px750x1000px-2.jpg" alt="Business support" loading="lazy" />
-  <img src="assets/Contact Photos/67c8386233cc0_LOWINVESTMENTHIFHRETURNS-5.jpg" alt="Investment returns" loading="lazy" />
-</div>
 
 <!-- ════════════════ INFO PACK CTA ════════════════ -->
 <section id="info-pack-cta">
@@ -807,7 +740,7 @@
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('page-loader').classList.add('hidden');
-      document.getElementById('page-hero').classList.add('loaded');
+      document.getElementById('page-hero')?.classList.add('loaded');
     }, 900);
   });
 
