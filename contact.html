@@ -306,6 +306,119 @@
       height: auto;
     }
 
+    /* ── Floating "Inquire Now" CTA ── */
+    .floating-inquire {
+      position: fixed;
+      left: 24px;
+      bottom: 28px;
+      z-index: 850;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--black);
+      padding: 14px 26px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 24px rgba(201,168,76,0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+    }
+    .floating-inquire:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(201,168,76,0.6);
+    }
+    @media (max-width: 480px) {
+      .floating-inquire { left: 16px; bottom: 20px; padding: 12px 20px; font-size: 0.75rem; }
+    }
+
+    /* ── Popup Inquiry Modal ── */
+    .inquiry-modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2500;
+      background: rgba(10,20,10,0.72);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .inquiry-modal-overlay.open { opacity: 1; visibility: visible; }
+    .inquiry-modal {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      max-width: 420px;
+      width: 100%;
+      padding: 40px 34px 34px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+    .inquiry-modal-overlay.open .inquiry-modal { transform: translateY(0) scale(1); }
+    .inquiry-modal-close {
+      position: absolute;
+      top: 10px; right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.9rem;
+      line-height: 1;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .inquiry-modal-close:hover { color: var(--text-dark); }
+    .inquiry-modal .label-cap { color: var(--gold); }
+    .inquiry-modal h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin: 8px 0 10px;
+      color: var(--green-dark);
+    }
+    .inquiry-modal > p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 22px; line-height: 1.5; }
+    #popup-form { display: flex; flex-direction: column; gap: 12px; }
+    #popup-form input {
+      padding: 13px 16px;
+      border: 1px solid var(--cream-dark);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color 0.2s ease;
+    }
+    #popup-form input:focus { outline: none; border-color: var(--green-mid); }
+    #popup-form input.field-error { border-color: #c0392b; background: #fdeeec; }
+    #popup-form button[type="submit"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 6px;
+      padding: 15px 24px;
+      border: none;
+      border-radius: 50px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    #popup-form button[type="submit"]:hover { background: var(--gold-light); transform: translateY(-2px); }
+    #popup-success { display: none; font-size: 1rem; color: var(--green-dark); font-weight: 600; padding: 24px 0; line-height: 1.5; }
+
     /* ── Franchise FAQ ── */
     #franchise-faq { background: var(--cream); }
 
@@ -706,6 +819,26 @@
   </div>
 </section>
 
+<!-- Floating "Inquire Now" CTA -->
+<a href="#contact-section" class="floating-inquire" id="floating-inquire">📝 Inquire Now →</a>
+
+<!-- Popup Inquiry Modal -->
+<div class="inquiry-modal-overlay" id="inquiry-modal" aria-hidden="true">
+  <div class="inquiry-modal" role="dialog" aria-modal="true" aria-labelledby="inquiry-modal-title">
+    <button class="inquiry-modal-close" id="inquiry-modal-close" aria-label="Close">&times;</button>
+    <span class="label-cap">Own Your Future</span>
+    <h3 id="inquiry-modal-title">Interested in a Wild Shakes Franchise?</h3>
+    <p>Leave your details and our franchise team will reach out within 24–48 hours.</p>
+    <form id="popup-form" novalidate>
+      <input type="text" id="popup-name" name="name" placeholder="Your name" required />
+      <input type="email" id="popup-email" name="email" placeholder="you@example.com" required />
+      <input type="tel" id="popup-phone" name="phone" placeholder="Phone / Viber (optional)" />
+      <button type="submit">Send Inquiry →</button>
+    </form>
+    <div id="popup-success">🎉 Thank you! Our franchise team will be in touch soon.</div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -830,6 +963,56 @@
   const glow = document.getElementById('cursor-glow');
   if (window.innerWidth > 768) { document.addEventListener('mousemove', e => { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; }); }
   else { glow.style.display = 'none'; }
+
+  // ── Popup inquiry modal (appears every 30 seconds) ──
+  (function () {
+    const overlay = document.getElementById('inquiry-modal');
+    if (!overlay) return;
+    const closeBtn = document.getElementById('inquiry-modal-close');
+    const popForm = document.getElementById('popup-form');
+    const popSuccess = document.getElementById('popup-success');
+    const nameEl = document.getElementById('popup-name');
+    const emailEl = document.getElementById('popup-email');
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let submitted = localStorage.getItem('ws_inquiry_submitted') === '1';
+    let timer = null;
+
+    function openModal() {
+      if (submitted || overlay.classList.contains('open')) return;
+      overlay.classList.add('open');
+      overlay.setAttribute('aria-hidden', 'false');
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    popForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const bad = [];
+      if (!nameEl.value.trim()) bad.push(nameEl);
+      if (!emailEl.value.trim() || !emailRe.test(emailEl.value.trim())) bad.push(emailEl);
+      if (bad.length) {
+        if (window.wsToast) window.wsToast('Please enter your name and a valid email address.', 'error');
+        bad.forEach(el => el.classList.add('field-error'));
+        setTimeout(() => bad.forEach(el => el.classList.remove('field-error')), 3000);
+        return;
+      }
+      popForm.style.display = 'none';
+      popSuccess.style.display = 'block';
+      submitted = true;
+      localStorage.setItem('ws_inquiry_submitted', '1');
+      if (timer) clearInterval(timer);
+      setTimeout(closeModal, 2600);
+    });
+
+    // Pop up every 30 seconds until the visitor submits
+    if (!submitted) timer = setInterval(openModal, 30000);
+  })();
 </script>
 <script src="app.js" defer></script>
 </body>
