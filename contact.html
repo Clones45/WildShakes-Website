@@ -287,24 +287,37 @@
     .info-pack-text p { color: rgba(255,255,255,0.7); max-width: 480px; }
     .info-pack-actions { display: flex; flex-wrap: wrap; gap: 16px; }
 
-    /* ── Franchise Funnel (kit slides) ── */
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    /* ── Steps to Own a Franchise ── */
+    #steps-to-own { background: var(--cream); }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 24px;
     }
-    #franchise-funnel {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: #0f1f0d;
-      padding-top: var(--nav-height);
+    .step-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      border-top: 4px solid var(--green-mid);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
-    .funnel-slide {
-      display: block;
-      width: 100%;
-      max-width: 1500px;
-      height: auto;
+    .step-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
     }
+    .step-desc { font-size: 0.9rem; color: var(--text-body); line-height: 1.6; }
+    .step-desc a { color: var(--green-dark); font-weight: 600; word-break: break-word; }
+    .step-desc a:hover { text-decoration: underline; }
+    .steps-cta-wrap { text-align: center; margin-top: 44px; }
+    @media (max-width: 900px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .steps-grid { grid-template-columns: 1fr; } }
 
     /* ── Floating "Inquire Now" CTA ── */
     .floating-inquire {
@@ -561,35 +574,62 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<!-- ════════════════ FRANCHISE FUNNEL (Kit Slides) ════════════════ -->
-<section id="franchise-funnel" aria-label="Wild Shakes Franchise Kit">
-  <h1 class="sr-only">Franchise With Wild Shakes — Own a Wild Shakes Café</h1>
-  <img class="funnel-slide" src="assets/franchise-kit/01.jpg" alt="Wild Shakes — Unleash the flavor, own the craze" loading="eager" fetchpriority="high" />
-  <img class="funnel-slide" src="assets/franchise-kit/02.jpg" alt="About Wild Shakes — premium fruit shakes and milkshakes" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/03.jpg" alt="Our history — the spark of an idea, 2021" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/04.jpg" alt="Our history — the Wild Shakes team" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/05.jpg" alt="Vision and mission" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/06.jpg" alt="Core values" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/07.jpg" alt="Wild Shakes Gensan branch" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/08.jpg" alt="Wild Shakes SM Gensan branch" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/09.jpg" alt="Wild Shakes Digos branch" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/10.jpg" alt="Wild Shakes Davao branch" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/11.jpg" alt="Wild Shakes Lanang branch" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/12.jpg" alt="Our wild gallery" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/13.jpg" alt="Our savory pastas" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/14.jpg" alt="Crispy, saucy chicken wings" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/15.jpg" alt="Slice, snap and share — pizza" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/16.jpg" alt="And so much more — favorites and snacks" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/17.jpg" alt="Franchise with us — why franchise with Wild Shakes" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/18.jpg" alt="Unit franchise inclusions and terms" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/19.jpg" alt="Area franchise inclusions and terms" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/20.jpg" alt="Unit franchise details" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/21.jpg" alt="Area franchise and cart details" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/22.jpg" alt="Steps to own a franchise, part 1" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/23.jpg" alt="Steps to own a franchise, part 2" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/24.jpg" alt="Your grand opening" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/25.jpg" alt="Get in touch — contact details" loading="lazy" />
-  <img class="funnel-slide" src="assets/franchise-kit/26.jpg" alt="Thank you" loading="lazy" />
+<!-- Page Hero -->
+<div class="page-hero" id="page-hero">
+  <img src="assets/Contact Photos/67c7f7ba5ab57_ComprehensiveTraining-3.jpg" alt="Franchise hero" loading="eager" />
+  <div class="page-hero-content">
+    <span class="label-cap" style="color:var(--gold-light);">Own Your Future</span>
+    <h1>Franchise With Wildshakes</h1>
+    <p>Join our growing family and bring Mindanao's creamiest fruit shakes to your city. Here's exactly how to make it yours.</p>
+    <a href="#steps-to-own" class="btn btn-primary" style="margin-top:26px;">See How It Works →</a>
+  </div>
+</div>
+
+<!-- ════════════════ STEPS TO OWN A FRANCHISE ════════════════ -->
+<section id="steps-to-own" class="section">
+  <div class="section-header reveal">
+    <span class="label-cap">The Journey</span>
+    <h2>Steps to Own a Franchise</h2>
+    <div class="divider"></div>
+    <p>From first inquiry to grand opening — here's the clear, step-by-step path to becoming a Wild Shakes franchisee.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-num">01</div>
+      <p class="step-desc">Fill out the Confidential Questionnaire, together with your Letter of Intent, and send them to <a href="mailto:wildshakesfranchise@gmail.com">wildshakesfranchise@gmail.com</a>.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <p class="step-desc">We will review your application.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <p class="step-desc">You will be invited to discuss franchise details.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-num">04</div>
+      <p class="step-desc">We will present you the franchise disclosure information.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-3">
+      <div class="step-num">05</div>
+      <p class="step-desc">Your proposed location will be visited and thoroughly checked.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-3">
+      <div class="step-num">06</div>
+      <p class="step-desc">The Franchise Agreement can now be executed.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-4">
+      <div class="step-num">07</div>
+      <p class="step-desc">Outlet set-up and staff training will commence.</p>
+    </div>
+    <div class="step-card reveal reveal-delay-4">
+      <div class="step-num">08</div>
+      <p class="step-desc">We will provide pre-opening assistance.</p>
+    </div>
+  </div>
+  <div class="steps-cta-wrap">
+    <a href="#contact-section" class="btn btn-green">Begin Step 1 — Inquire Now →</a>
+  </div>
 </section>
 
 <!-- ════════════════ INFO PACK CTA ════════════════ -->
