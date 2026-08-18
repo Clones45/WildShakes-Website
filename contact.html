@@ -581,16 +581,15 @@
   </div>
 </section>
 
-<!-- ════════════════ INFO PACK CTA ════════════════ -->
+<!-- ════════════════ FREE PACK CTA ════════════════ -->
 <section id="info-pack-cta">
   <div class="info-pack-text reveal">
-    <span class="label-cap">Free Download</span>
-    <h3>Get the Complete Franchise Information Pack</h3>
-    <p>Investment breakdowns, projected returns, training details, and everything else you need to make your decision — in one PDF.</p>
+    <span class="label-cap">Your Free Franchise Pack Awaits</span>
+    <h3>Send an Inquiry &amp; We'll Send You the Complete Franchise Pack — Free</h3>
+    <p>Investment breakdowns, projected returns, training, store setup, and everything you need to decide. Just tell us you're interested and our team will email it straight to you.</p>
   </div>
   <div class="info-pack-actions reveal reveal-delay-1">
-    <a href="assets/Wildshakes-Franchise-Kit.pdf" download class="btn btn-primary" id="franchise-kit-link">Download Franchise Kit (PDF) →</a>
-    <a href="assets/CompanyProfile.pdf" download class="btn btn-outline" id="info-pack-link">Download Info Pack (PDF) →</a>
+    <a href="#contact-section" class="btn btn-primary">Send an Inquiry &amp; Get Your Free Pack →</a>
   </div>
 </section>
 
@@ -904,15 +903,6 @@
     });
   });
 
-  // Info pack / franchise kit download toast
-  ['info-pack-link', 'franchise-kit-link'].forEach(id => {
-    const link = document.getElementById(id);
-    if (link) {
-      link.addEventListener('click', () => {
-        if (window.wsToast) window.wsToast('Your download has started!', 'info');
-      });
-    }
-  });
 
   // Form submit animation
   const form = document.getElementById('franchise-form');
