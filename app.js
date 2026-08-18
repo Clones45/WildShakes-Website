@@ -1,5 +1,5 @@
 /**
- * Wildshakes Cafe — Shared App Logic
+ * Wildshakes Cafe - Shared App Logic
  * Handles: cookie consent, back-to-top, WhatsApp CTA, toast notifications,
  * image error fallbacks, smooth anchor scrolling, mobile touch support.
  */
@@ -21,7 +21,6 @@
     banner.innerHTML = `
       <div class="cookie-inner">
         <div class="cookie-text">
-          <span class="cookie-icon">🍪</span>
           <p>We use cookies to give you the best experience on our site.
             <a href="#" onclick="return false;">Learn more</a></p>
         </div>
