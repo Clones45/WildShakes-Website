@@ -648,6 +648,10 @@
       <h3>Start Your Franchise Application</h3>
       <p>Tell us about your goals - our franchise development team will follow up with a personalized package recommendation within 24-48 hours.</p>
       <form id="franchise-form" novalidate>
+        <input type="hidden" name="access_key" value="5e114377-1e63-4294-b03e-f3cb4eec6aa8">
+        <input type="hidden" name="subject" value="New Franchise Inquiry - Wild Shakes Website">
+        <input type="hidden" name="from_name" value="Wild Shakes Website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="form-fields">
           <div class="form-row">
             <div class="form-group">
@@ -815,6 +819,10 @@
     <h3 id="inquiry-modal-title">Interested in a Wild Shakes Franchise?</h3>
     <p>Leave your details and our franchise team will reach out within 24-48 hours.</p>
     <form id="popup-form" novalidate>
+      <input type="hidden" name="access_key" value="5e114377-1e63-4294-b03e-f3cb4eec6aa8">
+      <input type="hidden" name="subject" value="New Popup Inquiry - Wild Shakes Website">
+      <input type="hidden" name="from_name" value="Wild Shakes Website">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <input type="text" id="popup-name" name="name" placeholder="Your name" required />
       <input type="email" id="popup-email" name="email" placeholder="you@example.com" required />
       <input type="tel" id="popup-phone" name="phone" placeholder="Phone / Viber (optional)" />
@@ -927,12 +935,20 @@
 
     btn.textContent = 'Sending…';
     btn.classList.add('sending');
-    setTimeout(() => {
-      btn.textContent = 'Sent!';
-      success.style.display = 'block';
-      form.reset();
-      setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.classList.remove('sending'); success.style.display = 'none'; }, 5000);
-    }, 1800);
+    fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+      .then(r => r.json())
+      .then(data => {
+        if (!data.success) throw new Error(data.message || 'Submit failed');
+        btn.textContent = 'Sent!';
+        success.style.display = 'block';
+        form.reset();
+        setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.classList.remove('sending'); success.style.display = 'none'; }, 6000);
+      })
+      .catch(() => {
+        btn.textContent = 'Send Inquiry →';
+        btn.classList.remove('sending');
+        if (window.wsToast) window.wsToast('Sorry, something went wrong. Please try again or email wildshakesfranchise@gmail.com directly.', 'error');
+      });
   });
 
   // Cursor glow
@@ -978,12 +994,26 @@
         setTimeout(() => bad.forEach(el => el.classList.remove('field-error')), 3000);
         return;
       }
-      popForm.style.display = 'none';
-      popSuccess.style.display = 'block';
-      submitted = true;
-      localStorage.setItem('ws_inquiry_submitted', '1');
-      if (timer) clearInterval(timer);
-      setTimeout(closeModal, 2600);
+      const submitBtn = popForm.querySelector('button[type="submit"]');
+      const origText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(popForm) })
+        .then(r => r.json())
+        .then(data => {
+          if (!data.success) throw new Error(data.message || 'Submit failed');
+          popForm.style.display = 'none';
+          popSuccess.style.display = 'block';
+          submitted = true;
+          localStorage.setItem('ws_inquiry_submitted', '1');
+          if (timer) clearInterval(timer);
+          setTimeout(closeModal, 2600);
+        })
+        .catch(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = origText;
+          if (window.wsToast) window.wsToast('Sorry, something went wrong. Please try again.', 'error');
+        });
     });
 
     // Pop up every 30 seconds until the visitor submits
