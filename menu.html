@@ -117,12 +117,13 @@
     .menu-card-img-wrap {
       position: relative;
       overflow: hidden;
-      height: 240px;
+      height: 300px;
+      background: var(--white);
     }
     .menu-card-img-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform 0.6s ease;
     }
     .menu-card:hover .menu-card-img-wrap img { transform: scale(1.08); }
@@ -258,54 +259,6 @@
 
   <div class="sub-header reveal">
     <div class="sub-header-line"></div>
-    <h3>Premium Milk Shakes</h3>
-    <div class="sub-header-line"></div>
-  </div>
-  <div class="menu-grid" id="milk-grid">
-    <div class="menu-card reveal reveal-delay-1" data-name="cookies and cream">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Cookies and Cream.jpg" alt="Cookies and Cream" loading="lazy" /><span class="menu-card-badge">Bestseller</span></div>
-      <div class="menu-card-body"><h3>Cookies &amp; Cream</h3><p>Velvety vanilla base blended with crushed Oreo cookies and a lavish cream finish.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-2" data-name="dark mocha">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Dark Mocha.jpg" alt="Dark Mocha" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Dark Mocha</h3><p>Rich, bold espresso meets decadent dark chocolate in an indulgent frozen blend.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-3" data-name="matcha oreo">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Matcha Oreo.jpg" alt="Matcha Oreo" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Matcha Oreo</h3><p>Premium ceremonial matcha swirled through a creamy Oreo milk shake base.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-1" data-name="coffee crumble">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Coffee Crumble.jpg" alt="Coffee Crumble" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Coffee Crumble</h3><p>Coffee-soaked crumble folded into a creamy milk shake - crunchy meets smooth.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-2" data-name="chocolate kisses">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Chocolate Kisses.jpg" alt="Chocolate Kisses" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Chocolate Kisses</h3><p>Classic Belgian chocolate with a hint of sea salt - pure, simple indulgence.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-3" data-name="salted caramel">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Salted Caramel.jpg" alt="Salted Caramel" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Salted Caramel</h3><p>Buttery caramel ribboned through chilled cream with a delicate pinch of sea salt.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-1" data-name="oreo milo">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Oreo Milo.jpg" alt="Oreo Milo" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Oreo Milo</h3><p>Childhood nostalgia upgraded - Milo malt meets Oreo crumble in a premium shake.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-2" data-name="matcha">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Matcha.jpg" alt="Pure Matcha" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Pure Matcha</h3><p>Ceremonial-grade Japanese matcha, blended pure - no distractions, just excellence.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-3" data-name="strawberry">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Strawberry.jpg" alt="Strawberry" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Wild Strawberry</h3><p>Ripe strawberries blended with fresh cream - bright, refreshing, and wildly smooth.</p></div>
-    </div>
-    <div class="menu-card reveal reveal-delay-1" data-name="cappuccino">
-      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Caoouccino.png" alt="Cappuccino" loading="lazy" /></div>
-      <div class="menu-card-body"><h3>Wild Cappuccino</h3><p>A delightful fusion of espresso notes and velvety milk shake textures.</p></div>
-    </div>
-  </div>
-
-  <div class="sub-header reveal" style="margin-top:64px;">
-    <div class="sub-header-line"></div>
     <h3>Premium Fruit Shakes</h3>
     <div class="sub-header-line"></div>
   </div>
@@ -369,6 +322,54 @@
     <div class="menu-card reveal reveal-delay-3" data-name="melon">
       <div class="menu-card-img-wrap"><img src="assets/Premium Fruit shakes/Melon.png" alt="Melon" loading="lazy" /></div>
       <div class="menu-card-body"><h3>Wild Melon</h3><p>Fresh, naturally sweet melon blended into a cool, revitalizing shake.</p></div>
+    </div>
+  </div>
+
+  <div class="sub-header reveal" style="margin-top:64px;">
+    <div class="sub-header-line"></div>
+    <h3>Premium Milk Shakes</h3>
+    <div class="sub-header-line"></div>
+  </div>
+  <div class="menu-grid" id="milk-grid">
+    <div class="menu-card reveal reveal-delay-1" data-name="cookies and cream">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Cookies and Cream.jpg" alt="Cookies and Cream" loading="lazy" /><span class="menu-card-badge">Bestseller</span></div>
+      <div class="menu-card-body"><h3>Cookies &amp; Cream</h3><p>Velvety vanilla base blended with crushed Oreo cookies and a lavish cream finish.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="dark mocha">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Dark Mocha.jpg" alt="Dark Mocha" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Dark Mocha</h3><p>Rich, bold espresso meets decadent dark chocolate in an indulgent frozen blend.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="matcha oreo">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Matcha Oreo.jpg" alt="Matcha Oreo" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Matcha Oreo</h3><p>Premium ceremonial matcha swirled through a creamy Oreo milk shake base.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="coffee crumble">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Coffee Crumble.jpg" alt="Coffee Crumble" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Coffee Crumble</h3><p>Coffee-soaked crumble folded into a creamy milk shake - crunchy meets smooth.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="chocolate kisses">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Chocolate Kisses.jpg" alt="Chocolate Kisses" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Chocolate Kisses</h3><p>Classic Belgian chocolate with a hint of sea salt - pure, simple indulgence.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="salted caramel">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Salted Caramel.jpg" alt="Salted Caramel" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Salted Caramel</h3><p>Buttery caramel ribboned through chilled cream with a delicate pinch of sea salt.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="oreo milo">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Oreo Milo.jpg" alt="Oreo Milo" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Oreo Milo</h3><p>Childhood nostalgia upgraded - Milo malt meets Oreo crumble in a premium shake.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-2" data-name="matcha">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Matcha.jpg" alt="Pure Matcha" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Pure Matcha</h3><p>Ceremonial-grade Japanese matcha, blended pure - no distractions, just excellence.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-3" data-name="strawberry">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Strawberry.jpg" alt="Strawberry" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Strawberry</h3><p>Ripe strawberries blended with fresh cream - bright, refreshing, and wildly smooth.</p></div>
+    </div>
+    <div class="menu-card reveal reveal-delay-1" data-name="cappuccino">
+      <div class="menu-card-img-wrap"><img src="assets/Premium Milk Shakes/Caoouccino.png" alt="Cappuccino" loading="lazy" /></div>
+      <div class="menu-card-body"><h3>Wild Cappuccino</h3><p>A delightful fusion of espresso notes and velvety milk shake textures.</p></div>
     </div>
   </div>
 </div>
