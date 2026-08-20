@@ -238,6 +238,28 @@ h1, h2, h3, h4 {
 .nav-links a:hover { color: var(--gold-light); }
 #navbar.scrolled .nav-links a:hover { color: var(--green-mid); }
 
+/* Header social icons */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 22px;
+  padding-left: 22px;
+  border-left: 1px solid rgba(255,255,255,0.28);
+}
+.nav-social a {
+  display: inline-flex;
+  color: var(--white);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.nav-social a:hover { color: var(--gold-light); transform: translateY(-2px); }
+#navbar.scrolled .nav-social { border-left-color: rgba(45,90,39,0.18); }
+#navbar.scrolled .nav-social a { color: var(--text-dark); }
+#navbar.scrolled .nav-social a:hover { color: var(--green-mid); }
+@media (max-width: 768px) {
+  .nav-social { margin-left: 12px; padding-left: 12px; gap: 12px; }
+}
+
 /* Hamburger */
 #nav-toggle {
   display: none;
